@@ -1,0 +1,952 @@
+{
+  "address": "0x99122aCEb74e99C36122c3CfEcDF774747d584AD",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "EnforcedPause",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ExpectedPause",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ReentrancyGuardReentrantCall",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "contractAddress",
+          "type": "address"
+        }
+      ],
+      "name": "ClaimContractSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "startTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "endTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tgeTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenSupply",
+          "type": "uint256"
+        }
+      ],
+      "name": "PresaleCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newEndTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "PresaleEndTimeUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "enum PresaleManager.PresaleState",
+          "name": "newState",
+          "type": "uint8"
+        }
+      ],
+      "name": "PresaleStateChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newRewardPerBlock",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardPerBlockUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "contractAddress",
+          "type": "address"
+        }
+      ],
+      "name": "StakingContractSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newTgeTimestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "TgeTimestampUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousSigner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newSigner",
+          "type": "address"
+        }
+      ],
+      "name": "TrustedSignerUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "claimContract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_trustedSigner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_rewardPerBlock",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_tgeTimestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_presaleTokenSupply",
+          "type": "uint256"
+        }
+      ],
+      "name": "createPresale",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "endPresale",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getPresaleDetails",
+      "outputs": [
+        {
+          "internalType": "enum PresaleManager.PresaleState",
+          "name": "state",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "startTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "endTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tgeTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "tokenAddr",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "supply",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getPresaleStatus",
+      "outputs": [
+        {
+          "internalType": "enum PresaleManager.PresaleState",
+          "name": "state",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bool",
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "started",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "ended",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "tgeOccurred",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isPresaleActive",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pausePresale",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "presaleEndTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "presaleStartTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "presaleState",
+      "outputs": [
+        {
+          "internalType": "enum PresaleManager.PresaleState",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "presaleTokenSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardPerBlock",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_claimContract",
+          "type": "address"
+        }
+      ],
+      "name": "setClaimContract",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_presaleEndTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "setPresaleEndTime",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_rewardPerBlock",
+          "type": "uint256"
+        }
+      ],
+      "name": "setRewardPerBlock",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_stakingContract",
+          "type": "address"
+        }
+      ],
+      "name": "setStakingContract",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tgeTimestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "setTgeTimestamp",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_newSigner",
+          "type": "address"
+        }
+      ],
+      "name": "setTrustedSigner",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stakingContract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tgeHasOccurred",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tgeTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "token",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "trustedSigner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unpausePresale",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x811f64c087434039533b42786878e7586ca92e165d74ec51ebca3e68a1f3daeb",
+  "receipt": {
+    "to": null,
+    "from": "0x1cE762e6e0f1a283B2668AA32A436423021fd8D9",
+    "contractAddress": "0x99122aCEb74e99C36122c3CfEcDF774747d584AD",
+    "transactionIndex": 122,
+    "gasUsed": "1063943",
+    "logsBloom": "0x00000000000000000000000000000000000000000000200000e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000020000000000000000000800000000400000000000000000000000400000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xb0134b4f73fe0d740cc8ed869470a28368709d8a4fa619d3f0cd70a750c15254",
+    "transactionHash": "0x811f64c087434039533b42786878e7586ca92e165d74ec51ebca3e68a1f3daeb",
+    "logs": [
+      {
+        "transactionIndex": 122,
+        "blockNumber": 24068716,
+        "transactionHash": "0x811f64c087434039533b42786878e7586ca92e165d74ec51ebca3e68a1f3daeb",
+        "address": "0x99122aCEb74e99C36122c3CfEcDF774747d584AD",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x0000000000000000000000001ce762e6e0f1a283b2668aa32a436423021fd8d9"
+        ],
+        "data": "0x",
+        "logIndex": 518,
+        "blockHash": "0xb0134b4f73fe0d740cc8ed869470a28368709d8a4fa619d3f0cd70a750c15254"
+      }
+    ],
+    "blockNumber": 24068716,
+    "cumulativeGasUsed": "17842144",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "b295e4e60f5f54bb1bb8b1c1dc603802",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.22+commit.4fc1097e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"EnforcedPause\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ExpectedPause\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ReentrancyGuardReentrantCall\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"contractAddress\",\"type\":\"address\"}],\"name\":\"ClaimContractSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"endTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tgeTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenSupply\",\"type\":\"uint256\"}],\"name\":\"PresaleCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newEndTime\",\"type\":\"uint256\"}],\"name\":\"PresaleEndTimeUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"enum PresaleManager.PresaleState\",\"name\":\"newState\",\"type\":\"uint8\"}],\"name\":\"PresaleStateChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newRewardPerBlock\",\"type\":\"uint256\"}],\"name\":\"RewardPerBlockUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"contractAddress\",\"type\":\"address\"}],\"name\":\"StakingContractSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newTgeTimestamp\",\"type\":\"uint256\"}],\"name\":\"TgeTimestampUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousSigner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newSigner\",\"type\":\"address\"}],\"name\":\"TrustedSignerUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"claimContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_trustedSigner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_rewardPerBlock\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_tgeTimestamp\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_presaleTokenSupply\",\"type\":\"uint256\"}],\"name\":\"createPresale\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"endPresale\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPresaleDetails\",\"outputs\":[{\"internalType\":\"enum PresaleManager.PresaleState\",\"name\":\"state\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"endTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tgeTime\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"tokenAddr\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"supply\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPresaleStatus\",\"outputs\":[{\"internalType\":\"enum PresaleManager.PresaleState\",\"name\":\"state\",\"type\":\"uint8\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"started\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"ended\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"tgeOccurred\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isPresaleActive\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pausePresale\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"presaleEndTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"presaleStartTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"presaleState\",\"outputs\":[{\"internalType\":\"enum PresaleManager.PresaleState\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"presaleTokenSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"rewardPerBlock\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_claimContract\",\"type\":\"address\"}],\"name\":\"setClaimContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_presaleEndTime\",\"type\":\"uint256\"}],\"name\":\"setPresaleEndTime\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_rewardPerBlock\",\"type\":\"uint256\"}],\"name\":\"setRewardPerBlock\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_stakingContract\",\"type\":\"address\"}],\"name\":\"setStakingContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tgeTimestamp\",\"type\":\"uint256\"}],\"name\":\"setTgeTimestamp\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_newSigner\",\"type\":\"address\"}],\"name\":\"setTrustedSigner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stakingContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tgeHasOccurred\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tgeTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"trustedSigner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpausePresale\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Manages the presale of tokens with configurable parameters\",\"errors\":{\"EnforcedPause()\":[{\"details\":\"The operation failed because the contract is paused.\"}],\"ExpectedPause()\":[{\"details\":\"The operation failed because the contract is not paused.\"}],\"OwnableInvalidOwner(address)\":[{\"details\":\"The owner is not a valid owner account. (eg. `address(0)`)\"}],\"OwnableUnauthorizedAccount(address)\":[{\"details\":\"The caller account is not authorized to perform an operation.\"}],\"ReentrancyGuardReentrantCall()\":[{\"details\":\"Unauthorized reentrant call.\"}]},\"events\":{\"Paused(address)\":{\"details\":\"Emitted when the pause is triggered by `account`.\"},\"Unpaused(address)\":{\"details\":\"Emitted when the pause is lifted by `account`.\"}},\"kind\":\"dev\",\"methods\":{\"constructor\":{\"details\":\"Constructor initializes the contract with the deployer as the owner\"},\"createPresale(address,address,uint256,uint256,uint256)\":{\"details\":\"Creates a new presale with the specified parametersInitial state: presaleEndTime is set to _tgeTimestamp to maintain the invariant      that presaleEndTime <= tgeTimestamp. Owner can adjust presaleEndTime later via setPresaleEndTime()\",\"params\":{\"_presaleTokenSupply\":\"Total supply of tokens for the presale\",\"_rewardPerBlock\":\"Reward rate per block (used for frontend/UI display only)\",\"_tgeTimestamp\":\"Timestamp for the Token Generation Event\",\"_token\":\"Address of the token being sold\",\"_trustedSigner\":\"Address of the signer authorized to sign presale transactions\"}},\"endPresale()\":{\"details\":\"Ends the presale\"},\"getPresaleDetails()\":{\"details\":\"Gets the details of the presale\",\"returns\":{\"endTime\":\"End time of the presale\",\"startTime\":\"Start time of the presale\",\"state\":\"Current state of the presale\",\"supply\":\"Total supply of tokens for the presale\",\"tgeTime\":\"Time of the Token Generation Event\",\"tokenAddr\":\"Address of the token being sold\"}},\"getPresaleStatus()\":{\"details\":\"Gets the current status of the presale\",\"returns\":{\"active\":\"Whether the presale is active\",\"ended\":\"Whether the presale has ended\",\"started\":\"Whether the presale has started\",\"state\":\"Current state of the presale\",\"tgeOccurred\":\"Whether the TGE has occurred\"}},\"isPresaleActive()\":{\"details\":\"Checks if the presale is currently active\",\"returns\":{\"_0\":\"bool True if presale is active, false otherwise\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"pausePresale()\":{\"details\":\"Pauses the presale\"},\"paused()\":{\"details\":\"Returns true if the contract is paused, and false otherwise.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"setClaimContract(address)\":{\"details\":\"Sets the claim contract address\",\"params\":{\"_claimContract\":\"Address of the claim contract\"}},\"setPresaleEndTime(uint256)\":{\"details\":\"Sets the end time for the presaleInvariant: presaleEndTime must be <= tgeTimestamp (enforced via require statement)\",\"params\":{\"_presaleEndTime\":\"New end time for the presale\"}},\"setRewardPerBlock(uint256)\":{\"details\":\"Sets the reward per block\",\"params\":{\"_rewardPerBlock\":\"New reward rate per block\"}},\"setStakingContract(address)\":{\"details\":\"Sets the staking contract address\",\"params\":{\"_stakingContract\":\"Address of the staking contract\"}},\"setTgeTimestamp(uint256)\":{\"details\":\"Sets the timestamp for the Token Generation EventEnforces invariant: presaleEndTime must be <= tgeTimestamp      If presaleEndTime would be violated, it is automatically adjusted to _tgeTimestamp\",\"params\":{\"_tgeTimestamp\":\"New timestamp for the TGE\"}},\"setTrustedSigner(address)\":{\"details\":\"Sets the trusted signer address\",\"params\":{\"_newSigner\":\"Address of the new trusted signer\"}},\"tgeHasOccurred()\":{\"details\":\"Checks if the TGE has occurred\",\"returns\":{\"_0\":\"bool True if TGE has occurred, false otherwise\"}},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"},\"unpausePresale()\":{\"details\":\"Unpauses the presale\"}},\"title\":\"PresaleManager\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"setRewardPerBlock(uint256)\":{\"notice\":\"This value is stored for frontend/UI display purposes only and is not enforced in any contract logic\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/PresaleManager.sol\":\"PresaleManager\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"@openzeppelin/contracts/access/Ownable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {Context} from \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is set to the address provided by the deployer. This can\\n * later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    /**\\n     * @dev The caller account is not authorized to perform an operation.\\n     */\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    /**\\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\\n     */\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\\n     */\\n    constructor(address initialOwner) {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (token/ERC20/IERC20.sol)\\n\\npragma solidity >=0.4.16;\\n\\n/**\\n * @dev Interface of the ERC-20 standard as defined in the ERC.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n\\n    /**\\n     * @dev Returns the value of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the value of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from the caller's account to `to`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address to, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets a `value` amount of tokens as the allowance of `spender` over the\\n     * caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from `from` to `to` using the\\n     * allowance mechanism. `value` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(address from, address to, uint256 value) external returns (bool);\\n}\\n\",\"keccak256\":\"0x74ed01eb66b923d0d0cfe3be84604ac04b76482a55f9dd655e1ef4d367f95bc2\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Pausable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.3.0) (utils/Pausable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {Context} from \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which allows children to implement an emergency stop\\n * mechanism that can be triggered by an authorized account.\\n *\\n * This module is used through inheritance. It will make available the\\n * modifiers `whenNotPaused` and `whenPaused`, which can be applied to\\n * the functions of your contract. Note that they will not be pausable by\\n * simply including this module, only once the modifiers are put in place.\\n */\\nabstract contract Pausable is Context {\\n    bool private _paused;\\n\\n    /**\\n     * @dev Emitted when the pause is triggered by `account`.\\n     */\\n    event Paused(address account);\\n\\n    /**\\n     * @dev Emitted when the pause is lifted by `account`.\\n     */\\n    event Unpaused(address account);\\n\\n    /**\\n     * @dev The operation failed because the contract is paused.\\n     */\\n    error EnforcedPause();\\n\\n    /**\\n     * @dev The operation failed because the contract is not paused.\\n     */\\n    error ExpectedPause();\\n\\n    /**\\n     * @dev Modifier to make a function callable only when the contract is not paused.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must not be paused.\\n     */\\n    modifier whenNotPaused() {\\n        _requireNotPaused();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Modifier to make a function callable only when the contract is paused.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must be paused.\\n     */\\n    modifier whenPaused() {\\n        _requirePaused();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns true if the contract is paused, and false otherwise.\\n     */\\n    function paused() public view virtual returns (bool) {\\n        return _paused;\\n    }\\n\\n    /**\\n     * @dev Throws if the contract is paused.\\n     */\\n    function _requireNotPaused() internal view virtual {\\n        if (paused()) {\\n            revert EnforcedPause();\\n        }\\n    }\\n\\n    /**\\n     * @dev Throws if the contract is not paused.\\n     */\\n    function _requirePaused() internal view virtual {\\n        if (!paused()) {\\n            revert ExpectedPause();\\n        }\\n    }\\n\\n    /**\\n     * @dev Triggers stopped state.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must not be paused.\\n     */\\n    function _pause() internal virtual whenNotPaused {\\n        _paused = true;\\n        emit Paused(_msgSender());\\n    }\\n\\n    /**\\n     * @dev Returns to normal state.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must be paused.\\n     */\\n    function _unpause() internal virtual whenPaused {\\n        _paused = false;\\n        emit Unpaused(_msgSender());\\n    }\\n}\\n\",\"keccak256\":\"0xdb484371dfbb848cb6f5d70464e9ac9b2900e4164ead76bbce4fef0b44bcc68f\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/ReentrancyGuard.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.1.0) (utils/ReentrancyGuard.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Contract module that helps prevent reentrant calls to a function.\\n *\\n * Inheriting from `ReentrancyGuard` will make the {nonReentrant} modifier\\n * available, which can be applied to functions to make sure there are no nested\\n * (reentrant) calls to them.\\n *\\n * Note that because there is a single `nonReentrant` guard, functions marked as\\n * `nonReentrant` may not call one another. This can be worked around by making\\n * those functions `private`, and then adding `external` `nonReentrant` entry\\n * points to them.\\n *\\n * TIP: If EIP-1153 (transient storage) is available on the chain you're deploying at,\\n * consider using {ReentrancyGuardTransient} instead.\\n *\\n * TIP: If you would like to learn more about reentrancy and alternative ways\\n * to protect against it, check out our blog post\\n * https://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].\\n */\\nabstract contract ReentrancyGuard {\\n    // Booleans are more expensive than uint256 or any type that takes up a full\\n    // word because each write operation emits an extra SLOAD to first read the\\n    // slot's contents, replace the bits taken up by the boolean, and then write\\n    // back. This is the compiler's defense against contract upgrades and\\n    // pointer aliasing, and it cannot be disabled.\\n\\n    // The values being non-zero value makes deployment a bit more expensive,\\n    // but in exchange the refund on every call to nonReentrant will be lower in\\n    // amount. Since refunds are capped to a percentage of the total\\n    // transaction's gas, it is best to keep them low in cases like this one, to\\n    // increase the likelihood of the full refund coming into effect.\\n    uint256 private constant NOT_ENTERED = 1;\\n    uint256 private constant ENTERED = 2;\\n\\n    uint256 private _status;\\n\\n    /**\\n     * @dev Unauthorized reentrant call.\\n     */\\n    error ReentrancyGuardReentrantCall();\\n\\n    constructor() {\\n        _status = NOT_ENTERED;\\n    }\\n\\n    /**\\n     * @dev Prevents a contract from calling itself, directly or indirectly.\\n     * Calling a `nonReentrant` function from another `nonReentrant`\\n     * function is not supported. It is possible to prevent this from happening\\n     * by making the `nonReentrant` function external, and making it call a\\n     * `private` function that does the actual work.\\n     */\\n    modifier nonReentrant() {\\n        _nonReentrantBefore();\\n        _;\\n        _nonReentrantAfter();\\n    }\\n\\n    function _nonReentrantBefore() private {\\n        // On the first call to nonReentrant, _status will be NOT_ENTERED\\n        if (_status == ENTERED) {\\n            revert ReentrancyGuardReentrantCall();\\n        }\\n\\n        // Any calls to nonReentrant after this point will fail\\n        _status = ENTERED;\\n    }\\n\\n    function _nonReentrantAfter() private {\\n        // By storing the original value once again, a refund is triggered (see\\n        // https://eips.ethereum.org/EIPS/eip-2200)\\n        _status = NOT_ENTERED;\\n    }\\n\\n    /**\\n     * @dev Returns true if the reentrancy guard is currently set to \\\"entered\\\", which indicates there is a\\n     * `nonReentrant` function in the call stack.\\n     */\\n    function _reentrancyGuardEntered() internal view returns (bool) {\\n        return _status == ENTERED;\\n    }\\n}\\n\",\"keccak256\":\"0x11a5a79827df29e915a12740caf62fe21ebe27c08c9ae3e09abe9ee3ba3866d3\",\"license\":\"MIT\"},\"contracts/PresaleManager.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.20;\\r\\n\\r\\nimport \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\r\\nimport \\\"@openzeppelin/contracts/token/ERC20/IERC20.sol\\\";\\r\\nimport \\\"@openzeppelin/contracts/utils/ReentrancyGuard.sol\\\";\\r\\nimport \\\"@openzeppelin/contracts/utils/Pausable.sol\\\";\\r\\n\\r\\n/**\\r\\n * @title PresaleManager\\r\\n * @dev Manages the presale of tokens with configurable parameters\\r\\n */\\r\\ncontract PresaleManager is Ownable, ReentrancyGuard, Pausable {\\r\\n    enum PresaleState {\\r\\n        NotCreated,\\r\\n        Active,\\r\\n        Paused,\\r\\n        Ended\\r\\n    }\\r\\n    PresaleState public presaleState;\\r\\n\\r\\n    IERC20 public token;\\r\\n    uint256 public tgeTimestamp;\\r\\n    address public trustedSigner;\\r\\n    uint256 public rewardPerBlock;\\r\\n    uint256 public presaleStartTime;\\r\\n    uint256 public presaleEndTime;\\r\\n    uint256 public presaleTokenSupply;\\r\\n    address public stakingContract;\\r\\n    address public claimContract;\\r\\n\\r\\n    // Events\\r\\n    event PresaleCreated(uint256 startTime, uint256 endTime, uint256 tgeTime, uint256 tokenSupply);\\r\\n    event TgeTimestampUpdated(uint256 newTgeTimestamp);\\r\\n    event RewardPerBlockUpdated(uint256 newRewardPerBlock);\\r\\n    event TrustedSignerUpdated(address indexed previousSigner, address indexed newSigner);\\r\\n    event StakingContractSet(address contractAddress);\\r\\n    event ClaimContractSet(address contractAddress);\\r\\n    event PresaleStateChanged(PresaleState newState);\\r\\n    event PresaleEndTimeUpdated(uint256 newEndTime);\\r\\n\\r\\n    // Modifiers\\r\\n    modifier onlyWhenPresaleCreated() {\\r\\n        require(presaleState != PresaleState.NotCreated, \\\"Presale not created yet\\\");\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    modifier onlyWhenPresaleActive() {\\r\\n        require(presaleState == PresaleState.Active, \\\"Presale not active\\\");\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    modifier onlyBeforeTge() {\\r\\n        require(block.timestamp < tgeTimestamp, \\\"TGE already passed\\\");\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Constructor initializes the contract with the deployer as the owner\\r\\n     */\\r\\n    constructor() Ownable(msg.sender) {\\r\\n        presaleState = PresaleState.NotCreated;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Creates a new presale with the specified parameters\\r\\n     * @param _token Address of the token being sold\\r\\n     * @param _trustedSigner Address of the signer authorized to sign presale transactions\\r\\n     * @param _rewardPerBlock Reward rate per block (used for frontend/UI display only)\\r\\n     * @param _tgeTimestamp Timestamp for the Token Generation Event\\r\\n     * @param _presaleTokenSupply Total supply of tokens for the presale\\r\\n     * @dev Initial state: presaleEndTime is set to _tgeTimestamp to maintain the invariant\\r\\n     *      that presaleEndTime <= tgeTimestamp. Owner can adjust presaleEndTime later via setPresaleEndTime()\\r\\n     */\\r\\n    function createPresale(\\r\\n        address _token,\\r\\n        address _trustedSigner,\\r\\n        uint256 _rewardPerBlock,\\r\\n        uint256 _tgeTimestamp,\\r\\n        uint256 _presaleTokenSupply\\r\\n    ) external onlyOwner nonReentrant {\\r\\n        require(presaleState == PresaleState.NotCreated, \\\"Presale already created\\\");\\r\\n        require(_token != address(0), \\\"Invalid token address\\\");\\r\\n        require(_trustedSigner != address(0), \\\"Invalid signer address\\\");\\r\\n        require(_tgeTimestamp > block.timestamp, \\\"TGE must be in the future\\\");\\r\\n        require(_presaleTokenSupply > 0, \\\"Presale supply must be positive\\\");\\r\\n\\r\\n        token = IERC20(_token);\\r\\n        trustedSigner = _trustedSigner;\\r\\n        rewardPerBlock = _rewardPerBlock;\\r\\n        presaleStartTime = block.timestamp;\\r\\n        tgeTimestamp = _tgeTimestamp;\\r\\n        presaleEndTime = _tgeTimestamp;\\r\\n        presaleTokenSupply = _presaleTokenSupply;\\r\\n        presaleState = PresaleState.Active;\\r\\n\\r\\n        emit PresaleCreated(presaleStartTime, _tgeTimestamp, _tgeTimestamp, _presaleTokenSupply);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Checks if the TGE has occurred\\r\\n     * @return bool True if TGE has occurred, false otherwise\\r\\n     */\\r\\n    function tgeHasOccurred() external view returns (bool) {\\r\\n        return block.timestamp >= tgeTimestamp;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Pauses the presale\\r\\n     */\\r\\n    function pausePresale() external onlyOwner onlyWhenPresaleActive {\\r\\n        presaleState = PresaleState.Paused;\\r\\n        _pause();\\r\\n        emit PresaleStateChanged(PresaleState.Paused);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Unpauses the presale\\r\\n     */\\r\\n    function unpausePresale() external onlyOwner whenPaused {\\r\\n        require(presaleState == PresaleState.Paused, \\\"Presale is not paused\\\");\\r\\n        require(block.timestamp < presaleEndTime, \\\"Presale period has ended\\\");\\r\\n\\r\\n        presaleState = PresaleState.Active;\\r\\n        _unpause();\\r\\n        emit PresaleStateChanged(PresaleState.Active);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Sets the end time for the presale\\r\\n     * @param _presaleEndTime New end time for the presale\\r\\n     * @dev Invariant: presaleEndTime must be <= tgeTimestamp (enforced via require statement)\\r\\n     */\\r\\n    function setPresaleEndTime(uint256 _presaleEndTime) external onlyOwner onlyWhenPresaleCreated onlyBeforeTge {\\r\\n        require(_presaleEndTime > block.timestamp, \\\"End time must be in the future\\\");\\r\\n        require(_presaleEndTime <= tgeTimestamp, \\\"End time cannot be after TGE\\\");\\r\\n\\r\\n        presaleEndTime = _presaleEndTime;\\r\\n        emit PresaleEndTimeUpdated(_presaleEndTime);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Sets the timestamp for the Token Generation Event\\r\\n     * @param _tgeTimestamp New timestamp for the TGE\\r\\n     * @dev Enforces invariant: presaleEndTime must be <= tgeTimestamp\\r\\n     *      If presaleEndTime would be violated, it is automatically adjusted to _tgeTimestamp\\r\\n     */\\r\\n    function setTgeTimestamp(uint256 _tgeTimestamp) external onlyOwner onlyWhenPresaleCreated onlyBeforeTge {\\r\\n        require(_tgeTimestamp > block.timestamp, \\\"TGE must be in the future\\\");\\r\\n\\r\\n        // Explicit invariant enforcement: presaleEndTime must always be <= tgeTimestamp\\r\\n        // If the new TGE is before current presaleEndTime, automatically adjust presaleEndTime\\r\\n        // This prevents the timeline relationship from being violated\\r\\n        if (_tgeTimestamp < presaleEndTime) {\\r\\n            presaleEndTime = _tgeTimestamp;\\r\\n            emit PresaleEndTimeUpdated(_tgeTimestamp);\\r\\n        }\\r\\n\\r\\n        tgeTimestamp = _tgeTimestamp;\\r\\n        emit TgeTimestampUpdated(_tgeTimestamp);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Sets the reward per block\\r\\n     * @param _rewardPerBlock New reward rate per block\\r\\n     * @notice This value is stored for frontend/UI display purposes only and is not enforced in any contract logic\\r\\n     */\\r\\n    function setRewardPerBlock(uint256 _rewardPerBlock) external onlyOwner onlyWhenPresaleCreated onlyBeforeTge {\\r\\n        rewardPerBlock = _rewardPerBlock;\\r\\n        emit RewardPerBlockUpdated(_rewardPerBlock);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Sets the trusted signer address\\r\\n     * @param _newSigner Address of the new trusted signer\\r\\n     */\\r\\n    function setTrustedSigner(address _newSigner) external onlyOwner onlyWhenPresaleCreated {\\r\\n        require(_newSigner != address(0), \\\"Invalid signer address\\\");\\r\\n\\r\\n        address oldSigner = trustedSigner;\\r\\n        trustedSigner = _newSigner;\\r\\n        emit TrustedSignerUpdated(oldSigner, _newSigner);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Sets the staking contract address\\r\\n     * @param _stakingContract Address of the staking contract\\r\\n     */\\r\\n    function setStakingContract(address _stakingContract) external onlyOwner {\\r\\n        require(_stakingContract != address(0), \\\"Invalid contract address\\\");\\r\\n        stakingContract = _stakingContract;\\r\\n        emit StakingContractSet(_stakingContract);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Sets the claim contract address\\r\\n     * @param _claimContract Address of the claim contract\\r\\n     */\\r\\n    function setClaimContract(address _claimContract) external onlyOwner {\\r\\n        require(_claimContract != address(0), \\\"Invalid contract address\\\");\\r\\n        claimContract = _claimContract;\\r\\n        emit ClaimContractSet(_claimContract);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Ends the presale\\r\\n     */\\r\\n    function endPresale() external onlyOwner onlyWhenPresaleCreated nonReentrant {\\r\\n        require(\\r\\n            presaleState == PresaleState.Active || presaleState == PresaleState.Paused,\\r\\n            \\\"Presale must be active or paused to end\\\"\\r\\n        );\\r\\n        presaleState = PresaleState.Ended;\\r\\n        presaleEndTime = block.timestamp;\\r\\n        if (paused()) {\\r\\n            _unpause();\\r\\n        }\\r\\n        emit PresaleStateChanged(PresaleState.Ended);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Checks if the presale is currently active\\r\\n     * @return bool True if presale is active, false otherwise\\r\\n     */\\r\\n    function isPresaleActive() external view returns (bool) {\\r\\n        if (presaleState != PresaleState.Active || paused()) {\\r\\n            return false;\\r\\n        }\\r\\n\\r\\n        return (block.timestamp >= presaleStartTime && block.timestamp < presaleEndTime);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Gets the current status of the presale\\r\\n     * @return state Current state of the presale\\r\\n     * @return active Whether the presale is active\\r\\n     * @return started Whether the presale has started\\r\\n     * @return ended Whether the presale has ended\\r\\n     * @return tgeOccurred Whether the TGE has occurred\\r\\n     */\\r\\n    function getPresaleStatus()\\r\\n        external\\r\\n        view\\r\\n        returns (PresaleState state, bool active, bool started, bool ended, bool tgeOccurred)\\r\\n    {\\r\\n        bool isActive = presaleState == PresaleState.Active &&\\r\\n            !paused() &&\\r\\n            block.timestamp >= presaleStartTime &&\\r\\n            block.timestamp < presaleEndTime;\\r\\n\\r\\n        return (\\r\\n            presaleState,\\r\\n            isActive,\\r\\n            block.timestamp >= presaleStartTime,\\r\\n            block.timestamp >= presaleEndTime || presaleState == PresaleState.Ended,\\r\\n            block.timestamp >= tgeTimestamp\\r\\n        );\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Gets the details of the presale\\r\\n     * @return state Current state of the presale\\r\\n     * @return startTime Start time of the presale\\r\\n     * @return endTime End time of the presale\\r\\n     * @return tgeTime Time of the Token Generation Event\\r\\n     * @return tokenAddr Address of the token being sold\\r\\n     * @return supply Total supply of tokens for the presale\\r\\n     */\\r\\n    function getPresaleDetails()\\r\\n        external\\r\\n        view\\r\\n        returns (\\r\\n            PresaleState state,\\r\\n            uint256 startTime,\\r\\n            uint256 endTime,\\r\\n            uint256 tgeTime,\\r\\n            address tokenAddr,\\r\\n            uint256 supply\\r\\n        )\\r\\n    {\\r\\n        return (presaleState, presaleStartTime, presaleEndTime, tgeTimestamp, address(token), presaleTokenSupply);\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0xaf8af9780b30b45726ba19c0fcf80041d6bc30b2ad326133ada58d05b0a39781\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608080604052346100895733156100735760008054336001600160a01b03198216811783556040519290916001600160a01b0316907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09080a36001805561ff00196002541660025561115e908161008f8239f35b631e4fbdf760e01b815260006004820152602490fd5b600080fdfe6040608081526004908136101561001557600080fd5b600090813560e01c8063070f5c0914610de25780630d0c31b714610db7578063249b7c1914610d995780634729376b14610d3a5780634a30d3eb14610cc557806356a1c70114610c225780635c975abb14610bff57806360d938dc14610bda57806366345da414610bb2578063715018a614610b555780638ae39cac14610b375780638da5cb5b14610b105780638f9c30db14610aef5780639dd373b914610a7a578063a4317ef414610a5c578063a43be57b146108f7578063a82524b2146108d9578063bb872b4a14610862578063c4fc3a3b14610844578063cfa0136f14610736578063d7517caa14610672578063d85a6de81461047d578063ee99205c14610455578063eee5592f14610307578063f2fde38b14610280578063f74d548014610254578063fc0c546a146102285763febb066a1461015557600080fd5b34610224576020366003190112610224578235906101716110ba565b60ff60025460081c168481101561021157916020916101b27f6de97eb9b2c91c4ed87da2828a7611ff87b192b8ca8a23833fa9fa4347eb3971941515610f51565b6101bf600354421061102d565b6101ca42831161106e565b60075482106101e0575b8160035551908152a180f35b816007557fd3a635d6989890f2ccde1a89f6bc524344a04f9d777e5c51cdd5acb9331c0a21838251848152a16101d4565b634e487b7160e01b845260218552602484fd5b5080fd5b5034610224578160031936011261022457600254905160109190911c6001600160a01b03168152602090f35b50823461027c578260031936011261027c575490516001600160a01b03909116815260209150f35b8280fd5b50823461027c57602036600319011261027c5761029b610eea565b906102a46110ba565b6001600160a01b039182169283156102f157505082546001600160a01b0319811683178455167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08380a380f35b51631e4fbdf760e01b8152908101849052602490fd5b50823461027c578260031936011261027c576103216110ba565b610329611109565b6002549060ff8260081c168181101561044257600203610407576007544210156103c457507f7747781996b653d46238f5d4a691a116f4a09d43d1609623675e1d1b806caf0d91602091610100908161ff001982161760025561038a611109565b61ffff1916176002557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa828251338152a15160018152a180f35b606490602084519162461bcd60e51b8352820152601860248201527f50726573616c6520706572696f642068617320656e64656400000000000000006044820152fd5b606490602084519162461bcd60e51b83528201526015602482015274141c995cd85b19481a5cc81b9bdd081c185d5cd959605a1b6044820152fd5b634e487b7160e01b855260218252602485fd5b503461022457816003193601126102245760095490516001600160a01b039091168152602090f35b5091346102245760a036600319011261022457610498610eea565b6001600160a01b0360243581811693929084900361066e5760643592608435946104c06110ba565b6104c86110e6565b6002549360ff8560081c168381101561065b57610618578316156105dd576104f1811515610f9d565b6104fc42861161106e565b851561059a5781546001600160a01b031916179055604435600555426006819055600384905560078490556008859055610100600160b01b031990921660109190911b62010000600160b01b031617610100176002558451908152602081018290528085019190915260608101919091527f6a00651728a92841411081673eaa4eddbed06d102a590e050c22def40d4dd0b890608090a16001805580f35b875162461bcd60e51b8152602081840152601f60248201527f50726573616c6520737570706c79206d75737420626520706f736974697665006044820152606490fd5b875162461bcd60e51b81526020818401526015602482015274496e76616c696420746f6b656e206164647265737360581b6044820152606490fd5b885162461bcd60e51b8152602081850152601760248201527f50726573616c6520616c726561647920637265617465640000000000000000006044820152606490fd5b634e487b7160e01b895260218452602489fd5b8480fd5b50346102245781600319360112610224576002549060ff8260081c169284841015610723575060a09350600183149182610717575b508161070a575b816106fe575b6006544210156007544210918215926106f3575b600354421015936106db82518097610ec7565b15156020860152840152151560608301526080820152f35b6003851492506106c8565b600754421091506106b4565b60065442101591506106ae565b60ff16159150386106a7565b634e487b7160e01b815260218552602490fd5b5082903461027c57602036600319011261027c578135916107556110ba565b60ff60025460081c168181101561044257610771901515610f51565b60035461077f81421061102d565b428411156108015783116107bf5750816020917fd3a635d6989890f2ccde1a89f6bc524344a04f9d777e5c51cdd5acb9331c0a219360075551908152a180f35b6020606492519162461bcd60e51b8352820152601c60248201527f456e642074696d652063616e6e6f7420626520616674657220544745000000006044820152fd5b506020606492519162461bcd60e51b8352820152601e60248201527f456e642074696d65206d75737420626520696e207468652066757475726500006044820152fd5b50346102245781600319360112610224576020906008549051908152f35b50346102245760203660031901126102245782359061087f6110ba565b60ff60025460081c168481101561021157916020916108c07f5ed0ffa545a9eae0edd36b74378d16454cf385281383c7632ad5b2ebf3ab2b92941515610f51565b6108cd600354421061102d565b8160055551908152a180f35b50346102245781600319360112610224576020906006549051908152f35b50823461027c578260031936011261027c576109116110ba565b60ff60025460081c1681811015610a495761092d901515610f51565b6109356110e6565b6002549060ff8260081c16818110156104425760018114908115610a3e575b50156109eb57507f7747781996b653d46238f5d4a691a116f4a09d43d1609623675e1d1b806caf0d91602091610300908161ff00198216176002554260075560ff81166109ab575b50505160038152a16001805580f35b6109b3611109565b61ffff1916176002557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa828251338152a1848061099c565b608490602084519162461bcd60e51b8352820152602760248201527f50726573616c65206d75737420626520616374697665206f7220706175736564604482015266081d1bc8195b9960ca1b6064820152fd5b600291501485610954565b634e487b7160e01b845260218252602484fd5b50346102245781600319360112610224576020906003549051908152f35b50346102245760203660031901126102245760207f1253844b0fff3da7dd2829de816c9b4f94c238cf2bf6eb72c02c7d6f2b53beac91610ab8610eea565b610ac06110ba565b6001600160a01b031690610ad5821515610f05565b600980546001600160a01b0319168317905551908152a180f35b50346102245781600319360112610224576020906003544210159051908152f35b5034610224578160031936011261022457905490516001600160a01b039091168152602090f35b50346102245781600319360112610224576020906005549051908152f35b8234610baf5780600319360112610baf57610b6e6110ba565b80546001600160a01b03198116825581906001600160a01b03167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08280a380f35b80fd5b5034610224578160031936011261022457600a5490516001600160a01b039091168152602090f35b5034610224578160031936011261022457602090610bf6610fe2565b90519015158152f35b503461022457816003193601126102245760209060ff6002541690519015158152f35b82843461022457602036600319011261022457610c3d610eea565b610c456110ba565b60ff60025460081c1682811015610cb257610c61901515610f51565b6001600160a01b0390811691610c78831515610f9d565b80546001600160a01b031981168417909155167f4a297cf5d32586f80d2b0708a39d2da1f46e6ae7722171e1c51dfd685b5b8aa88380a380f35b634e487b7160e01b845260218352602484fd5b50346102245760203660031901126102245760207fbf77f8a166e9bdd137896351a3fea0853166f5ad052c99f89c0e300c5d4f213791610d03610eea565b610d0b6110ba565b6001600160a01b031690610d20821515610f05565b600a80546001600160a01b0319168317905551908152a180f35b503461022457816003193601126102245760c09060025490600654916007546003549060085493805195610d748760ff8760081c16610ec7565b6020870152850152606084015260101c6001600160a01b0316608083015260a0820152f35b50346102245781600319360112610224576020906007549051908152f35b5034610224578160031936011261022457602090610de060ff60025460081c1691518092610ec7565bf35b50823461027c578260031936011261027c57610dfc6110ba565b6002549060ff8260081c168181101561044257600103610e8f5760ff8216610e8157507f7747781996b653d46238f5d4a691a116f4a09d43d1609623675e1d1b806caf0d9161020160209261ffff1916176002557f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258828251338152a15160028152a180f35b825163d93c066560e01b8152fd5b606490602084519162461bcd60e51b8352820152601260248201527150726573616c65206e6f742061637469766560701b6044820152fd5b906004821015610ed45752565b634e487b7160e01b600052602160045260246000fd5b600435906001600160a01b0382168203610f0057565b600080fd5b15610f0c57565b60405162461bcd60e51b815260206004820152601860248201527f496e76616c696420636f6e7472616374206164647265737300000000000000006044820152606490fd5b15610f5857565b60405162461bcd60e51b815260206004820152601760248201527f50726573616c65206e6f742063726561746564207965740000000000000000006044820152606490fd5b15610fa457565b60405162461bcd60e51b8152602060048201526016602482015275496e76616c6964207369676e6572206164647265737360501b6044820152606490fd5b60025460ff8160081c166004811015610ed45760011490811591611022575b5061101d57600654421015806110145790565b50600754421090565b600090565b60ff91501638611001565b1561103457565b60405162461bcd60e51b81526020600482015260126024820152711511d148185b1c9958591e481c185cdcd95960721b6044820152606490fd5b1561107557565b60405162461bcd60e51b815260206004820152601960248201527f544745206d75737420626520696e2074686520667574757265000000000000006044820152606490fd5b6000546001600160a01b031633036110ce57565b60405163118cdaa760e01b8152336004820152602490fd5b6002600154146110f7576002600155565b604051633ee5aeb560e01b8152600490fd5b60ff600254161561111657565b604051638dfc202b60e01b8152600490fdfea26469706673582212206cc3a2a160bd9b520621ddfec723c20b3d4cbe1939e1a55bb529c0ae9e9f515864736f6c63430008160033",
+  "deployedBytecode": "0x6040608081526004908136101561001557600080fd5b600090813560e01c8063070f5c0914610de25780630d0c31b714610db7578063249b7c1914610d995780634729376b14610d3a5780634a30d3eb14610cc557806356a1c70114610c225780635c975abb14610bff57806360d938dc14610bda57806366345da414610bb2578063715018a614610b555780638ae39cac14610b375780638da5cb5b14610b105780638f9c30db14610aef5780639dd373b914610a7a578063a4317ef414610a5c578063a43be57b146108f7578063a82524b2146108d9578063bb872b4a14610862578063c4fc3a3b14610844578063cfa0136f14610736578063d7517caa14610672578063d85a6de81461047d578063ee99205c14610455578063eee5592f14610307578063f2fde38b14610280578063f74d548014610254578063fc0c546a146102285763febb066a1461015557600080fd5b34610224576020366003190112610224578235906101716110ba565b60ff60025460081c168481101561021157916020916101b27f6de97eb9b2c91c4ed87da2828a7611ff87b192b8ca8a23833fa9fa4347eb3971941515610f51565b6101bf600354421061102d565b6101ca42831161106e565b60075482106101e0575b8160035551908152a180f35b816007557fd3a635d6989890f2ccde1a89f6bc524344a04f9d777e5c51cdd5acb9331c0a21838251848152a16101d4565b634e487b7160e01b845260218552602484fd5b5080fd5b5034610224578160031936011261022457600254905160109190911c6001600160a01b03168152602090f35b50823461027c578260031936011261027c575490516001600160a01b03909116815260209150f35b8280fd5b50823461027c57602036600319011261027c5761029b610eea565b906102a46110ba565b6001600160a01b039182169283156102f157505082546001600160a01b0319811683178455167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08380a380f35b51631e4fbdf760e01b8152908101849052602490fd5b50823461027c578260031936011261027c576103216110ba565b610329611109565b6002549060ff8260081c168181101561044257600203610407576007544210156103c457507f7747781996b653d46238f5d4a691a116f4a09d43d1609623675e1d1b806caf0d91602091610100908161ff001982161760025561038a611109565b61ffff1916176002557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa828251338152a15160018152a180f35b606490602084519162461bcd60e51b8352820152601860248201527f50726573616c6520706572696f642068617320656e64656400000000000000006044820152fd5b606490602084519162461bcd60e51b83528201526015602482015274141c995cd85b19481a5cc81b9bdd081c185d5cd959605a1b6044820152fd5b634e487b7160e01b855260218252602485fd5b503461022457816003193601126102245760095490516001600160a01b039091168152602090f35b5091346102245760a036600319011261022457610498610eea565b6001600160a01b0360243581811693929084900361066e5760643592608435946104c06110ba565b6104c86110e6565b6002549360ff8560081c168381101561065b57610618578316156105dd576104f1811515610f9d565b6104fc42861161106e565b851561059a5781546001600160a01b031916179055604435600555426006819055600384905560078490556008859055610100600160b01b031990921660109190911b62010000600160b01b031617610100176002558451908152602081018290528085019190915260608101919091527f6a00651728a92841411081673eaa4eddbed06d102a590e050c22def40d4dd0b890608090a16001805580f35b875162461bcd60e51b8152602081840152601f60248201527f50726573616c6520737570706c79206d75737420626520706f736974697665006044820152606490fd5b875162461bcd60e51b81526020818401526015602482015274496e76616c696420746f6b656e206164647265737360581b6044820152606490fd5b885162461bcd60e51b8152602081850152601760248201527f50726573616c6520616c726561647920637265617465640000000000000000006044820152606490fd5b634e487b7160e01b895260218452602489fd5b8480fd5b50346102245781600319360112610224576002549060ff8260081c169284841015610723575060a09350600183149182610717575b508161070a575b816106fe575b6006544210156007544210918215926106f3575b600354421015936106db82518097610ec7565b15156020860152840152151560608301526080820152f35b6003851492506106c8565b600754421091506106b4565b60065442101591506106ae565b60ff16159150386106a7565b634e487b7160e01b815260218552602490fd5b5082903461027c57602036600319011261027c578135916107556110ba565b60ff60025460081c168181101561044257610771901515610f51565b60035461077f81421061102d565b428411156108015783116107bf5750816020917fd3a635d6989890f2ccde1a89f6bc524344a04f9d777e5c51cdd5acb9331c0a219360075551908152a180f35b6020606492519162461bcd60e51b8352820152601c60248201527f456e642074696d652063616e6e6f7420626520616674657220544745000000006044820152fd5b506020606492519162461bcd60e51b8352820152601e60248201527f456e642074696d65206d75737420626520696e207468652066757475726500006044820152fd5b50346102245781600319360112610224576020906008549051908152f35b50346102245760203660031901126102245782359061087f6110ba565b60ff60025460081c168481101561021157916020916108c07f5ed0ffa545a9eae0edd36b74378d16454cf385281383c7632ad5b2ebf3ab2b92941515610f51565b6108cd600354421061102d565b8160055551908152a180f35b50346102245781600319360112610224576020906006549051908152f35b50823461027c578260031936011261027c576109116110ba565b60ff60025460081c1681811015610a495761092d901515610f51565b6109356110e6565b6002549060ff8260081c16818110156104425760018114908115610a3e575b50156109eb57507f7747781996b653d46238f5d4a691a116f4a09d43d1609623675e1d1b806caf0d91602091610300908161ff00198216176002554260075560ff81166109ab575b50505160038152a16001805580f35b6109b3611109565b61ffff1916176002557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa828251338152a1848061099c565b608490602084519162461bcd60e51b8352820152602760248201527f50726573616c65206d75737420626520616374697665206f7220706175736564604482015266081d1bc8195b9960ca1b6064820152fd5b600291501485610954565b634e487b7160e01b845260218252602484fd5b50346102245781600319360112610224576020906003549051908152f35b50346102245760203660031901126102245760207f1253844b0fff3da7dd2829de816c9b4f94c238cf2bf6eb72c02c7d6f2b53beac91610ab8610eea565b610ac06110ba565b6001600160a01b031690610ad5821515610f05565b600980546001600160a01b0319168317905551908152a180f35b50346102245781600319360112610224576020906003544210159051908152f35b5034610224578160031936011261022457905490516001600160a01b039091168152602090f35b50346102245781600319360112610224576020906005549051908152f35b8234610baf5780600319360112610baf57610b6e6110ba565b80546001600160a01b03198116825581906001600160a01b03167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08280a380f35b80fd5b5034610224578160031936011261022457600a5490516001600160a01b039091168152602090f35b5034610224578160031936011261022457602090610bf6610fe2565b90519015158152f35b503461022457816003193601126102245760209060ff6002541690519015158152f35b82843461022457602036600319011261022457610c3d610eea565b610c456110ba565b60ff60025460081c1682811015610cb257610c61901515610f51565b6001600160a01b0390811691610c78831515610f9d565b80546001600160a01b031981168417909155167f4a297cf5d32586f80d2b0708a39d2da1f46e6ae7722171e1c51dfd685b5b8aa88380a380f35b634e487b7160e01b845260218352602484fd5b50346102245760203660031901126102245760207fbf77f8a166e9bdd137896351a3fea0853166f5ad052c99f89c0e300c5d4f213791610d03610eea565b610d0b6110ba565b6001600160a01b031690610d20821515610f05565b600a80546001600160a01b0319168317905551908152a180f35b503461022457816003193601126102245760c09060025490600654916007546003549060085493805195610d748760ff8760081c16610ec7565b6020870152850152606084015260101c6001600160a01b0316608083015260a0820152f35b50346102245781600319360112610224576020906007549051908152f35b5034610224578160031936011261022457602090610de060ff60025460081c1691518092610ec7565bf35b50823461027c578260031936011261027c57610dfc6110ba565b6002549060ff8260081c168181101561044257600103610e8f5760ff8216610e8157507f7747781996b653d46238f5d4a691a116f4a09d43d1609623675e1d1b806caf0d9161020160209261ffff1916176002557f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258828251338152a15160028152a180f35b825163d93c066560e01b8152fd5b606490602084519162461bcd60e51b8352820152601260248201527150726573616c65206e6f742061637469766560701b6044820152fd5b906004821015610ed45752565b634e487b7160e01b600052602160045260246000fd5b600435906001600160a01b0382168203610f0057565b600080fd5b15610f0c57565b60405162461bcd60e51b815260206004820152601860248201527f496e76616c696420636f6e7472616374206164647265737300000000000000006044820152606490fd5b15610f5857565b60405162461bcd60e51b815260206004820152601760248201527f50726573616c65206e6f742063726561746564207965740000000000000000006044820152606490fd5b15610fa457565b60405162461bcd60e51b8152602060048201526016602482015275496e76616c6964207369676e6572206164647265737360501b6044820152606490fd5b60025460ff8160081c166004811015610ed45760011490811591611022575b5061101d57600654421015806110145790565b50600754421090565b600090565b60ff91501638611001565b1561103457565b60405162461bcd60e51b81526020600482015260126024820152711511d148185b1c9958591e481c185cdcd95960721b6044820152606490fd5b1561107557565b60405162461bcd60e51b815260206004820152601960248201527f544745206d75737420626520696e2074686520667574757265000000000000006044820152606490fd5b6000546001600160a01b031633036110ce57565b60405163118cdaa760e01b8152336004820152602490fd5b6002600154146110f7576002600155565b604051633ee5aeb560e01b8152600490fd5b60ff600254161561111657565b604051638dfc202b60e01b8152600490fdfea26469706673582212206cc3a2a160bd9b520621ddfec723c20b3d4cbe1939e1a55bb529c0ae9e9f515864736f6c63430008160033",
+  "devdoc": {
+    "details": "Manages the presale of tokens with configurable parameters",
+    "errors": {
+      "EnforcedPause()": [
+        {
+          "details": "The operation failed because the contract is paused."
+        }
+      ],
+      "ExpectedPause()": [
+        {
+          "details": "The operation failed because the contract is not paused."
+        }
+      ],
+      "OwnableInvalidOwner(address)": [
+        {
+          "details": "The owner is not a valid owner account. (eg. `address(0)`)"
+        }
+      ],
+      "OwnableUnauthorizedAccount(address)": [
+        {
+          "details": "The caller account is not authorized to perform an operation."
+        }
+      ],
+      "ReentrancyGuardReentrantCall()": [
+        {
+          "details": "Unauthorized reentrant call."
+        }
+      ]
+    },
+    "events": {
+      "Paused(address)": {
+        "details": "Emitted when the pause is triggered by `account`."
+      },
+      "Unpaused(address)": {
+        "details": "Emitted when the pause is lifted by `account`."
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "constructor": {
+        "details": "Constructor initializes the contract with the deployer as the owner"
+      },
+      "createPresale(address,address,uint256,uint256,uint256)": {
+        "details": "Creates a new presale with the specified parametersInitial state: presaleEndTime is set to _tgeTimestamp to maintain the invariant      that presaleEndTime <= tgeTimestamp. Owner can adjust presaleEndTime later via setPresaleEndTime()",
+        "params": {
+          "_presaleTokenSupply": "Total supply of tokens for the presale",
+          "_rewardPerBlock": "Reward rate per block (used for frontend/UI display only)",
+          "_tgeTimestamp": "Timestamp for the Token Generation Event",
+          "_token": "Address of the token being sold",
+          "_trustedSigner": "Address of the signer authorized to sign presale transactions"
+        }
+      },
+      "endPresale()": {
+        "details": "Ends the presale"
+      },
+      "getPresaleDetails()": {
+        "details": "Gets the details of the presale",
+        "returns": {
+          "endTime": "End time of the presale",
+          "startTime": "Start time of the presale",
+          "state": "Current state of the presale",
+          "supply": "Total supply of tokens for the presale",
+          "tgeTime": "Time of the Token Generation Event",
+          "tokenAddr": "Address of the token being sold"
+        }
+      },
+      "getPresaleStatus()": {
+        "details": "Gets the current status of the presale",
+        "returns": {
+          "active": "Whether the presale is active",
+          "ended": "Whether the presale has ended",
+          "started": "Whether the presale has started",
+          "state": "Current state of the presale",
+          "tgeOccurred": "Whether the TGE has occurred"
+        }
+      },
+      "isPresaleActive()": {
+        "details": "Checks if the presale is currently active",
+        "returns": {
+          "_0": "bool True if presale is active, false otherwise"
+        }
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "pausePresale()": {
+        "details": "Pauses the presale"
+      },
+      "paused()": {
+        "details": "Returns true if the contract is paused, and false otherwise."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+      },
+      "setClaimContract(address)": {
+        "details": "Sets the claim contract address",
+        "params": {
+          "_claimContract": "Address of the claim contract"
+        }
+      },
+      "setPresaleEndTime(uint256)": {
+        "details": "Sets the end time for the presaleInvariant: presaleEndTime must be <= tgeTimestamp (enforced via require statement)",
+        "params": {
+          "_presaleEndTime": "New end time for the presale"
+        }
+      },
+      "setRewardPerBlock(uint256)": {
+        "details": "Sets the reward per block",
+        "params": {
+          "_rewardPerBlock": "New reward rate per block"
+        }
+      },
+      "setStakingContract(address)": {
+        "details": "Sets the staking contract address",
+        "params": {
+          "_stakingContract": "Address of the staking contract"
+        }
+      },
+      "setTgeTimestamp(uint256)": {
+        "details": "Sets the timestamp for the Token Generation EventEnforces invariant: presaleEndTime must be <= tgeTimestamp      If presaleEndTime would be violated, it is automatically adjusted to _tgeTimestamp",
+        "params": {
+          "_tgeTimestamp": "New timestamp for the TGE"
+        }
+      },
+      "setTrustedSigner(address)": {
+        "details": "Sets the trusted signer address",
+        "params": {
+          "_newSigner": "Address of the new trusted signer"
+        }
+      },
+      "tgeHasOccurred()": {
+        "details": "Checks if the TGE has occurred",
+        "returns": {
+          "_0": "bool True if TGE has occurred, false otherwise"
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      },
+      "unpausePresale()": {
+        "details": "Unpauses the presale"
+      }
+    },
+    "title": "PresaleManager",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "setRewardPerBlock(uint256)": {
+        "notice": "This value is stored for frontend/UI display purposes only and is not enforced in any contract logic"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 1579,
+        "contract": "contracts/PresaleManager.sol:PresaleManager",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 3229,
+        "contract": "contracts/PresaleManager.sol:PresaleManager",
+        "label": "_status",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 3119,
+        "contract": "contracts/PresaleManager.sol:PresaleManager",
+        "label": "_paused",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_bool"
+      },
+      {
+        "astId": 12024,
+        "contract": "contracts/PresaleManager.sol:PresaleManager",
+        "label": "presaleState",
+        "offset": 1,
+        "slot": "2",
+        "type": "t_enum(PresaleState)12021"
+      },
+      {
+        "astId": 12027,
+        "contract": "contracts/PresaleManager.sol:PresaleManager",
+        "label": "token",
+        "offset": 2,
+        "slot": "2",
+        "type": "t_contract(IERC20)2538"
+      },
+      {
+        "astId": 12029,
+        "contract": "contracts/PresaleManager.sol:PresaleManager",
+        "label": "tgeTimestamp",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 12031,
+        "contract": "contracts/PresaleManager.sol:PresaleManager",
+        "label": "trustedSigner",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_address"
+      },
+      {
+        "astId": 12033,
+        "contract": "contracts/PresaleManager.sol:PresaleManager",
+        "label": "rewardPerBlock",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 12035,
+        "contract": "contracts/PresaleManager.sol:PresaleManager",
+        "label": "presaleStartTime",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 12037,
+        "contract": "contracts/PresaleManager.sol:PresaleManager",
+        "label": "presaleEndTime",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 12039,
+        "contract": "contracts/PresaleManager.sol:PresaleManager",
+        "label": "presaleTokenSupply",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 12041,
+        "contract": "contracts/PresaleManager.sol:PresaleManager",
+        "label": "stakingContract",
+        "offset": 0,
+        "slot": "9",
+        "type": "t_address"
+      },
+      {
+        "astId": 12043,
+        "contract": "contracts/PresaleManager.sol:PresaleManager",
+        "label": "claimContract",
+        "offset": 0,
+        "slot": "10",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_contract(IERC20)2538": {
+        "encoding": "inplace",
+        "label": "contract IERC20",
+        "numberOfBytes": "20"
+      },
+      "t_enum(PresaleState)12021": {
+        "encoding": "inplace",
+        "label": "enum PresaleManager.PresaleState",
+        "numberOfBytes": "1"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

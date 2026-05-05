@@ -1,0 +1,1425 @@
+{
+  "address": "0x292C81bE1ddB48E79f356868E288B3c8e08849Bc",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_endpoint",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "InsufficientStakedAmount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidDelegate",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidEndpointCall",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidLockDuration",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidMessageType",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "options",
+          "type": "bytes"
+        }
+      ],
+      "name": "InvalidOptions",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidRepairAmount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidUser",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "LockPeriodNotEnded",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "LzTokenUnavailable",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "MessageAlreadyProcessed",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "eid",
+          "type": "uint32"
+        }
+      ],
+      "name": "NoPeer",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "msgValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "NotEnoughNative",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        }
+      ],
+      "name": "OnlyEndpoint",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "eid",
+          "type": "uint32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "sender",
+          "type": "bytes32"
+        }
+      ],
+      "name": "OnlyPeer",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ReentrancyGuardReentrantCall",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "RepairWouldCauseOverflow",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "StakeIndexOutOfBounds",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "StakeNotActive",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroAmount",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint32",
+              "name": "eid",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint16",
+              "name": "msgType",
+              "type": "uint16"
+            },
+            {
+              "internalType": "bytes",
+              "name": "options",
+              "type": "bytes"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct EnforcedOptionParam[]",
+          "name": "_enforcedOptions",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "EnforcedOptionSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "messageType",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "guid",
+          "type": "bytes32"
+        }
+      ],
+      "name": "InvalidMessageReceived",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "messageType",
+          "type": "uint8"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "guid",
+          "type": "bytes32"
+        }
+      ],
+      "name": "MessageProcessed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "eid",
+          "type": "uint32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "peer",
+          "type": "bytes32"
+        }
+      ],
+      "name": "PeerSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "lockDuration",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "stakeIndex",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "blockNumber",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "srcEid",
+          "type": "uint32"
+        }
+      ],
+      "name": "StakeReceived",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "stakeIndex",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "oldAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "reason",
+          "type": "string"
+        }
+      ],
+      "name": "StakeRepaired",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "stakeIndex",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "blockNumber",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "srcEid",
+          "type": "uint32"
+        }
+      ],
+      "name": "UnstakeReceived",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "MAX_LOCK_DURATION",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MIN_LOCK_DURATION",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "SIX_MONTHS_DURATION",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "STAKE_MSG_TYPE",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "THREE_MONTHS_DURATION",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "UNSTAKE_MSG_TYPE",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint32",
+              "name": "srcEid",
+              "type": "uint32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "sender",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "nonce",
+              "type": "uint64"
+            }
+          ],
+          "internalType": "struct Origin",
+          "name": "origin",
+          "type": "tuple"
+        }
+      ],
+      "name": "allowInitializePath",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "_eid",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint16",
+          "name": "_msgType",
+          "type": "uint16"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_extraOptions",
+          "type": "bytes"
+        }
+      ],
+      "name": "combineOptions",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "endpoint",
+      "outputs": [
+        {
+          "internalType": "contract ILayerZeroEndpointV2",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "eid",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint16",
+          "name": "msgType",
+          "type": "uint16"
+        }
+      ],
+      "name": "enforcedOptions",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "enforcedOption",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "getTotalStakedGlobal",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "getUserStakes",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "lockDuration",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "blockNumber",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "active",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct MetUserState.Stake[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint32",
+              "name": "srcEid",
+              "type": "uint32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "sender",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "nonce",
+              "type": "uint64"
+            }
+          ],
+          "internalType": "struct Origin",
+          "name": "",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        },
+        {
+          "internalType": "address",
+          "name": "_sender",
+          "type": "address"
+        }
+      ],
+      "name": "isComposeMsgSender",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint32",
+              "name": "srcEid",
+              "type": "uint32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "sender",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "nonce",
+              "type": "uint64"
+            }
+          ],
+          "internalType": "struct Origin",
+          "name": "_origin",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_guid",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_message",
+          "type": "bytes"
+        },
+        {
+          "internalType": "address",
+          "name": "_executor",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_extraData",
+          "type": "bytes"
+        }
+      ],
+      "name": "lzReceive",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "nextNonce",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "nonce",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "oAppVersion",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "senderVersion",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint64",
+          "name": "receiverVersion",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "eid",
+          "type": "uint32"
+        }
+      ],
+      "name": "peers",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "peer",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "processedMessages",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "stakeIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "correctedAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "reason",
+          "type": "string"
+        }
+      ],
+      "name": "repairUserStake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_delegate",
+          "type": "address"
+        }
+      ],
+      "name": "setDelegate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint32",
+              "name": "eid",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint16",
+              "name": "msgType",
+              "type": "uint16"
+            },
+            {
+              "internalType": "bytes",
+              "name": "options",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct EnforcedOptionParam[]",
+          "name": "_enforcedOptions",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "setEnforcedOptions",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "_eid",
+          "type": "uint32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_peer",
+          "type": "bytes32"
+        }
+      ],
+      "name": "setPeer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "totalStakedGlobal",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "userStakes",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "lockDuration",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "startTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "blockNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "active",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xdba7c6bd93892b360dd6145824c7abaddf545bd7a20c1d4f222bb740bd96d7d2",
+  "receipt": {
+    "to": null,
+    "from": "0x10A0bdFCD243E1BBb2b98e6263dbd33F61765bBE",
+    "contractAddress": "0x292C81bE1ddB48E79f356868E288B3c8e08849Bc",
+    "transactionIndex": 42,
+    "gasUsed": "1613259",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000800000000000000000000000000000200000000000000000000002000000000000000000000000000000000000000000000000000000002001000000000000000000000000000000000000020000000200000000000800000000000000000000000000000002400000000000000020000000000000000000000000000000000000000000000000000000800000000000000000040000000000000000000000400000000000000400000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x5a6d5180fda48882e1d68c70e194e68196390477e2a2cafa1e9a9ca9c8460ebd",
+    "transactionHash": "0xdba7c6bd93892b360dd6145824c7abaddf545bd7a20c1d4f222bb740bd96d7d2",
+    "logs": [
+      {
+        "transactionIndex": 42,
+        "blockNumber": 9654388,
+        "transactionHash": "0xdba7c6bd93892b360dd6145824c7abaddf545bd7a20c1d4f222bb740bd96d7d2",
+        "address": "0x292C81bE1ddB48E79f356868E288B3c8e08849Bc",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x00000000000000000000000010a0bdfcd243e1bbb2b98e6263dbd33f61765bbe"
+        ],
+        "data": "0x",
+        "logIndex": 46,
+        "blockHash": "0x5a6d5180fda48882e1d68c70e194e68196390477e2a2cafa1e9a9ca9c8460ebd"
+      },
+      {
+        "transactionIndex": 42,
+        "blockNumber": 9654388,
+        "transactionHash": "0xdba7c6bd93892b360dd6145824c7abaddf545bd7a20c1d4f222bb740bd96d7d2",
+        "address": "0x6EDCE65403992e310A62460808c4b910D972f10f",
+        "topics": [
+          "0x6ee10e9ed4d6ce9742703a498707862f4b00f1396a87195eb93267b3d7983981"
+        ],
+        "data": "0x000000000000000000000000292c81be1ddb48e79f356868e288b3c8e08849bc00000000000000000000000010a0bdfcd243e1bbb2b98e6263dbd33f61765bbe",
+        "logIndex": 47,
+        "blockHash": "0x5a6d5180fda48882e1d68c70e194e68196390477e2a2cafa1e9a9ca9c8460ebd"
+      }
+    ],
+    "blockNumber": 9654388,
+    "cumulativeGasUsed": "5628530",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x6EDCE65403992e310A62460808c4b910D972f10f",
+    "0x10A0bdFCD243E1BBb2b98e6263dbd33F61765bBE"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "c2dd41f50bd03f20efb42bc11cdd750f",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.22+commit.4fc1097e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_endpoint\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"InsufficientStakedAmount\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidDelegate\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidEndpointCall\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidLockDuration\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidMessageType\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"options\",\"type\":\"bytes\"}],\"name\":\"InvalidOptions\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidRepairAmount\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidUser\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"LockPeriodNotEnded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"LzTokenUnavailable\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"MessageAlreadyProcessed\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"eid\",\"type\":\"uint32\"}],\"name\":\"NoPeer\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"msgValue\",\"type\":\"uint256\"}],\"name\":\"NotEnoughNative\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"OnlyEndpoint\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"eid\",\"type\":\"uint32\"},{\"internalType\":\"bytes32\",\"name\":\"sender\",\"type\":\"bytes32\"}],\"name\":\"OnlyPeer\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ReentrancyGuardReentrantCall\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"RepairWouldCauseOverflow\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"StakeIndexOutOfBounds\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"StakeNotActive\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ZeroAmount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"uint32\",\"name\":\"eid\",\"type\":\"uint32\"},{\"internalType\":\"uint16\",\"name\":\"msgType\",\"type\":\"uint16\"},{\"internalType\":\"bytes\",\"name\":\"options\",\"type\":\"bytes\"}],\"indexed\":false,\"internalType\":\"struct EnforcedOptionParam[]\",\"name\":\"_enforcedOptions\",\"type\":\"tuple[]\"}],\"name\":\"EnforcedOptionSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"messageType\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"guid\",\"type\":\"bytes32\"}],\"name\":\"InvalidMessageReceived\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"messageType\",\"type\":\"uint8\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"guid\",\"type\":\"bytes32\"}],\"name\":\"MessageProcessed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"eid\",\"type\":\"uint32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"peer\",\"type\":\"bytes32\"}],\"name\":\"PeerSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"lockDuration\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"stakeIndex\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"srcEid\",\"type\":\"uint32\"}],\"name\":\"StakeReceived\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"stakeIndex\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"oldAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"StakeRepaired\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"stakeIndex\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"srcEid\",\"type\":\"uint32\"}],\"name\":\"UnstakeReceived\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"MAX_LOCK_DURATION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MIN_LOCK_DURATION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"SIX_MONTHS_DURATION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"STAKE_MSG_TYPE\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"THREE_MONTHS_DURATION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"UNSTAKE_MSG_TYPE\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint32\",\"name\":\"srcEid\",\"type\":\"uint32\"},{\"internalType\":\"bytes32\",\"name\":\"sender\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"nonce\",\"type\":\"uint64\"}],\"internalType\":\"struct Origin\",\"name\":\"origin\",\"type\":\"tuple\"}],\"name\":\"allowInitializePath\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"_eid\",\"type\":\"uint32\"},{\"internalType\":\"uint16\",\"name\":\"_msgType\",\"type\":\"uint16\"},{\"internalType\":\"bytes\",\"name\":\"_extraOptions\",\"type\":\"bytes\"}],\"name\":\"combineOptions\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"endpoint\",\"outputs\":[{\"internalType\":\"contract ILayerZeroEndpointV2\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"eid\",\"type\":\"uint32\"},{\"internalType\":\"uint16\",\"name\":\"msgType\",\"type\":\"uint16\"}],\"name\":\"enforcedOptions\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"enforcedOption\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getTotalStakedGlobal\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getUserStakes\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lockDuration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"}],\"internalType\":\"struct MetUserState.Stake[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint32\",\"name\":\"srcEid\",\"type\":\"uint32\"},{\"internalType\":\"bytes32\",\"name\":\"sender\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"nonce\",\"type\":\"uint64\"}],\"internalType\":\"struct Origin\",\"name\":\"\",\"type\":\"tuple\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"address\",\"name\":\"_sender\",\"type\":\"address\"}],\"name\":\"isComposeMsgSender\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint32\",\"name\":\"srcEid\",\"type\":\"uint32\"},{\"internalType\":\"bytes32\",\"name\":\"sender\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"nonce\",\"type\":\"uint64\"}],\"internalType\":\"struct Origin\",\"name\":\"_origin\",\"type\":\"tuple\"},{\"internalType\":\"bytes32\",\"name\":\"_guid\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"_message\",\"type\":\"bytes\"},{\"internalType\":\"address\",\"name\":\"_executor\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"_extraData\",\"type\":\"bytes\"}],\"name\":\"lzReceive\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"nextNonce\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"nonce\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"oAppVersion\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"senderVersion\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"receiverVersion\",\"type\":\"uint64\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"eid\",\"type\":\"uint32\"}],\"name\":\"peers\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"peer\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"processedMessages\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"stakeIndex\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"correctedAmount\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"repairUserStake\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_delegate\",\"type\":\"address\"}],\"name\":\"setDelegate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint32\",\"name\":\"eid\",\"type\":\"uint32\"},{\"internalType\":\"uint16\",\"name\":\"msgType\",\"type\":\"uint16\"},{\"internalType\":\"bytes\",\"name\":\"options\",\"type\":\"bytes\"}],\"internalType\":\"struct EnforcedOptionParam[]\",\"name\":\"_enforcedOptions\",\"type\":\"tuple[]\"}],\"name\":\"setEnforcedOptions\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"_eid\",\"type\":\"uint32\"},{\"internalType\":\"bytes32\",\"name\":\"_peer\",\"type\":\"bytes32\"}],\"name\":\"setPeer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"totalStakedGlobal\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"userStakes\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lockDuration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Contract for managing user staking state across chains using LayerZero\",\"errors\":{\"OwnableInvalidOwner(address)\":[{\"details\":\"The owner is not a valid owner account. (eg. `address(0)`)\"}],\"OwnableUnauthorizedAccount(address)\":[{\"details\":\"The caller account is not authorized to perform an operation.\"}],\"ReentrancyGuardReentrantCall()\":[{\"details\":\"Unauthorized reentrant call.\"}]},\"kind\":\"dev\",\"methods\":{\"allowInitializePath((uint32,bytes32,uint64))\":{\"details\":\"This indicates to the endpoint that the OApp has enabled msgs for this particular path to be received.This defaults to assuming if a peer has been set, its initialized. Can be overridden by the OApp if there is other logic to determine this.\",\"params\":{\"origin\":\"The origin information containing the source endpoint and sender address.\"},\"returns\":{\"_0\":\"Whether the path has been initialized.\"}},\"combineOptions(uint32,uint16,bytes)\":{\"details\":\"If there is an enforced lzReceive option: - {gasLimit: 200k, msg.value: 1 ether} AND a caller supplies a lzReceive option: {gasLimit: 100k, msg.value: 0.5 ether} - The resulting options will be {gasLimit: 300k, msg.value: 1.5 ether} when the message is executed on the remote lzReceive() function.This presence of duplicated options is handled off-chain in the verifier/executor.\",\"params\":{\"_eid\":\"The endpoint ID.\",\"_extraOptions\":\"Additional options passed by the caller.\",\"_msgType\":\"The OAPP message type.\"},\"returns\":{\"_0\":\"options The combination of caller specified options AND enforced options.\"}},\"constructor\":{\"details\":\"Constructor initializes the contract with the endpoint and owner\",\"params\":{\"_endpoint\":\"Address of the LayerZero endpoint\",\"_owner\":\"Address of the contract owner\"}},\"getTotalStakedGlobal(address)\":{\"details\":\"Gets the total amount staked by a user\",\"params\":{\"user\":\"Address of the user\"},\"returns\":{\"_0\":\"Total staked amount\"}},\"getUserStakes(address)\":{\"details\":\"Gets all stakes for a user\",\"params\":{\"user\":\"Address of the user\"},\"returns\":{\"_0\":\"Array of user's stakes\"}},\"isComposeMsgSender((uint32,bytes32,uint64),bytes,address)\":{\"details\":\"_origin The origin information containing the source endpoint and sender address.  - srcEid: The source chain endpoint ID.  - sender: The sender address on the src chain.  - nonce: The nonce of the message._message The lzReceive payload.Applications can optionally choose to implement separate composeMsg senders that are NOT the bridging layer.The default sender IS the OAppReceiver implementer.\",\"params\":{\"_sender\":\"The sender address.\"},\"returns\":{\"_0\":\"isSender Is a valid sender.\"}},\"lzReceive((uint32,bytes32,uint64),bytes32,bytes,address,bytes)\":{\"details\":\"Entry point for receiving messages or packets from the endpoint.Entry point for receiving msg/packet from the LayerZero endpoint.\",\"params\":{\"_executor\":\"The address of the executor for the received message.\",\"_extraData\":\"Additional arbitrary data provided by the corresponding executor.\",\"_guid\":\"The unique identifier for the received LayerZero message.\",\"_message\":\"The payload of the received message.\",\"_origin\":\"The origin information containing the source endpoint and sender address.  - srcEid: The source chain endpoint ID.  - sender: The sender address on the src chain.  - nonce: The nonce of the message.\"}},\"nextNonce(uint32,bytes32)\":{\"details\":\"_srcEid The source endpoint ID._sender The sender address.The path nonce starts from 1. If 0 is returned it means that there is NO nonce ordered enforcement.Is required by the off-chain executor to determine the OApp expects msg execution is ordered.This is also enforced by the OApp.By default this is NOT enabled. ie. nextNonce is hardcoded to return 0.\",\"returns\":{\"nonce\":\"The next nonce.\"}},\"oAppVersion()\":{\"returns\":{\"receiverVersion\":\"The version of the OAppReceiver.sol implementation.\",\"senderVersion\":\"The version of the OAppSender.sol implementation.\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"repairUserStake(address,uint256,uint256,string)\":{\"details\":\"ADMIN REPAIR FUNCTION - Use with extreme cautionAllows owner to repair corrupted stake state after validationOnly use for correcting clear mistakes (e.g., bad LayerZero message)\",\"params\":{\"correctedAmount\":\"Corrected amount for the stake\",\"reason\":\"Reason for the repair (max 256 characters)\",\"stakeIndex\":\"Index of the stake to repair\",\"user\":\"Address of the user whose stake needs repair\"}},\"setDelegate(address)\":{\"details\":\"Only the owner/admin of the OApp can call this function.Provides the ability for a delegate to set configs, on behalf of the OApp, directly on the Endpoint contract.\",\"params\":{\"_delegate\":\"The address of the delegate to be set.\"}},\"setEnforcedOptions((uint32,uint16,bytes)[])\":{\"details\":\"Sets the enforced options for specific endpoint and message type combinations.Only the owner/admin of the OApp can call this function.Provides a way for the OApp to enforce things like paying for PreCrime, AND/OR minimum dst lzReceive gas amounts etc.These enforced options can vary as the potential options/execution on the remote may differ as per the msgType. eg. Amount of lzReceive() gas necessary to deliver a lzCompose() message adds overhead you dont want to pay if you are only making a standard LayerZero message ie. lzReceive() WITHOUT sendCompose().\",\"params\":{\"_enforcedOptions\":\"An array of EnforcedOptionParam structures specifying enforced options.\"}},\"setPeer(uint32,bytes32)\":{\"details\":\"Only the owner/admin of the OApp can call this function.Indicates that the peer is trusted to send LayerZero messages to this OApp.Set this to bytes32(0) to remove the peer address.Peer is a bytes32 to accommodate non-evm chains.\",\"params\":{\"_eid\":\"The endpoint ID.\",\"_peer\":\"The address of the peer to be associated with the corresponding endpoint.\"}},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"title\":\"MetUserState\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"allowInitializePath((uint32,bytes32,uint64))\":{\"notice\":\"Checks if the path initialization is allowed based on the provided origin.\"},\"combineOptions(uint32,uint16,bytes)\":{\"notice\":\"Combines options for a given endpoint and message type.\"},\"endpoint()\":{\"notice\":\"Retrieves the LayerZero endpoint associated with the OApp.\"},\"isComposeMsgSender((uint32,bytes32,uint64),bytes,address)\":{\"notice\":\"Indicates whether an address is an approved composeMsg sender to the Endpoint.\"},\"nextNonce(uint32,bytes32)\":{\"notice\":\"Retrieves the next nonce for a given source endpoint and sender address.\"},\"oAppVersion()\":{\"notice\":\"Retrieves the OApp version information.\"},\"peers(uint32)\":{\"notice\":\"Retrieves the peer (OApp) associated with a corresponding endpoint.\"},\"repairUserStake(address,uint256,uint256,string)\":{\"notice\":\"This function should be used sparingly and only by trusted adminsAll repairs are permanently logged via events for audit trail\"},\"setDelegate(address)\":{\"notice\":\"Sets the delegate address for the OApp.\"},\"setPeer(uint32,bytes32)\":{\"notice\":\"Sets the peer address (OApp instance) for a corresponding endpoint.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/MetUserState.sol\":\"MetUserState\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/ILayerZeroEndpointV2.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.8.0;\\n\\nimport { IMessageLibManager } from \\\"./IMessageLibManager.sol\\\";\\nimport { IMessagingComposer } from \\\"./IMessagingComposer.sol\\\";\\nimport { IMessagingChannel } from \\\"./IMessagingChannel.sol\\\";\\nimport { IMessagingContext } from \\\"./IMessagingContext.sol\\\";\\n\\nstruct MessagingParams {\\n    uint32 dstEid;\\n    bytes32 receiver;\\n    bytes message;\\n    bytes options;\\n    bool payInLzToken;\\n}\\n\\nstruct MessagingReceipt {\\n    bytes32 guid;\\n    uint64 nonce;\\n    MessagingFee fee;\\n}\\n\\nstruct MessagingFee {\\n    uint256 nativeFee;\\n    uint256 lzTokenFee;\\n}\\n\\nstruct Origin {\\n    uint32 srcEid;\\n    bytes32 sender;\\n    uint64 nonce;\\n}\\n\\ninterface ILayerZeroEndpointV2 is IMessageLibManager, IMessagingComposer, IMessagingChannel, IMessagingContext {\\n    event PacketSent(bytes encodedPayload, bytes options, address sendLibrary);\\n\\n    event PacketVerified(Origin origin, address receiver, bytes32 payloadHash);\\n\\n    event PacketDelivered(Origin origin, address receiver);\\n\\n    event LzReceiveAlert(\\n        address indexed receiver,\\n        address indexed executor,\\n        Origin origin,\\n        bytes32 guid,\\n        uint256 gas,\\n        uint256 value,\\n        bytes message,\\n        bytes extraData,\\n        bytes reason\\n    );\\n\\n    event LzTokenSet(address token);\\n\\n    event DelegateSet(address sender, address delegate);\\n\\n    function quote(MessagingParams calldata _params, address _sender) external view returns (MessagingFee memory);\\n\\n    function send(\\n        MessagingParams calldata _params,\\n        address _refundAddress\\n    ) external payable returns (MessagingReceipt memory);\\n\\n    function verify(Origin calldata _origin, address _receiver, bytes32 _payloadHash) external;\\n\\n    function verifiable(Origin calldata _origin, address _receiver) external view returns (bool);\\n\\n    function initializable(Origin calldata _origin, address _receiver) external view returns (bool);\\n\\n    function lzReceive(\\n        Origin calldata _origin,\\n        address _receiver,\\n        bytes32 _guid,\\n        bytes calldata _message,\\n        bytes calldata _extraData\\n    ) external payable;\\n\\n    // oapp can burn messages partially by calling this function with its own business logic if messages are verified in order\\n    function clear(address _oapp, Origin calldata _origin, bytes32 _guid, bytes calldata _message) external;\\n\\n    function setLzToken(address _lzToken) external;\\n\\n    function lzToken() external view returns (address);\\n\\n    function nativeToken() external view returns (address);\\n\\n    function setDelegate(address _delegate) external;\\n}\\n\",\"keccak256\":\"0xf7f941bee89ea6369950fe54e8ac476ae6478b958b20fc0e8a83e8ff1364eac3\",\"license\":\"MIT\"},\"@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/ILayerZeroReceiver.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.8.0;\\n\\nimport { Origin } from \\\"./ILayerZeroEndpointV2.sol\\\";\\n\\ninterface ILayerZeroReceiver {\\n    function allowInitializePath(Origin calldata _origin) external view returns (bool);\\n\\n    function nextNonce(uint32 _eid, bytes32 _sender) external view returns (uint64);\\n\\n    function lzReceive(\\n        Origin calldata _origin,\\n        bytes32 _guid,\\n        bytes calldata _message,\\n        address _executor,\\n        bytes calldata _extraData\\n    ) external payable;\\n}\\n\",\"keccak256\":\"0x9641abba8d53b08bb517d1b74801dd15ea7b84d77a6719085bd96c8ea94e3ca0\",\"license\":\"MIT\"},\"@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/IMessageLibManager.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.8.0;\\n\\nstruct SetConfigParam {\\n    uint32 eid;\\n    uint32 configType;\\n    bytes config;\\n}\\n\\ninterface IMessageLibManager {\\n    struct Timeout {\\n        address lib;\\n        uint256 expiry;\\n    }\\n\\n    event LibraryRegistered(address newLib);\\n    event DefaultSendLibrarySet(uint32 eid, address newLib);\\n    event DefaultReceiveLibrarySet(uint32 eid, address newLib);\\n    event DefaultReceiveLibraryTimeoutSet(uint32 eid, address oldLib, uint256 expiry);\\n    event SendLibrarySet(address sender, uint32 eid, address newLib);\\n    event ReceiveLibrarySet(address receiver, uint32 eid, address newLib);\\n    event ReceiveLibraryTimeoutSet(address receiver, uint32 eid, address oldLib, uint256 timeout);\\n\\n    function registerLibrary(address _lib) external;\\n\\n    function isRegisteredLibrary(address _lib) external view returns (bool);\\n\\n    function getRegisteredLibraries() external view returns (address[] memory);\\n\\n    function setDefaultSendLibrary(uint32 _eid, address _newLib) external;\\n\\n    function defaultSendLibrary(uint32 _eid) external view returns (address);\\n\\n    function setDefaultReceiveLibrary(uint32 _eid, address _newLib, uint256 _gracePeriod) external;\\n\\n    function defaultReceiveLibrary(uint32 _eid) external view returns (address);\\n\\n    function setDefaultReceiveLibraryTimeout(uint32 _eid, address _lib, uint256 _expiry) external;\\n\\n    function defaultReceiveLibraryTimeout(uint32 _eid) external view returns (address lib, uint256 expiry);\\n\\n    function isSupportedEid(uint32 _eid) external view returns (bool);\\n\\n    function isValidReceiveLibrary(address _receiver, uint32 _eid, address _lib) external view returns (bool);\\n\\n    /// ------------------- OApp interfaces -------------------\\n    function setSendLibrary(address _oapp, uint32 _eid, address _newLib) external;\\n\\n    function getSendLibrary(address _sender, uint32 _eid) external view returns (address lib);\\n\\n    function isDefaultSendLibrary(address _sender, uint32 _eid) external view returns (bool);\\n\\n    function setReceiveLibrary(address _oapp, uint32 _eid, address _newLib, uint256 _gracePeriod) external;\\n\\n    function getReceiveLibrary(address _receiver, uint32 _eid) external view returns (address lib, bool isDefault);\\n\\n    function setReceiveLibraryTimeout(address _oapp, uint32 _eid, address _lib, uint256 _expiry) external;\\n\\n    function receiveLibraryTimeout(address _receiver, uint32 _eid) external view returns (address lib, uint256 expiry);\\n\\n    function setConfig(address _oapp, address _lib, SetConfigParam[] calldata _params) external;\\n\\n    function getConfig(\\n        address _oapp,\\n        address _lib,\\n        uint32 _eid,\\n        uint32 _configType\\n    ) external view returns (bytes memory config);\\n}\\n\",\"keccak256\":\"0x919b37133adff4dc528e3061deb2789c3149971b530c61e556fb3d09ab315dfc\",\"license\":\"MIT\"},\"@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/IMessagingChannel.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.8.0;\\n\\ninterface IMessagingChannel {\\n    event InboundNonceSkipped(uint32 srcEid, bytes32 sender, address receiver, uint64 nonce);\\n    event PacketNilified(uint32 srcEid, bytes32 sender, address receiver, uint64 nonce, bytes32 payloadHash);\\n    event PacketBurnt(uint32 srcEid, bytes32 sender, address receiver, uint64 nonce, bytes32 payloadHash);\\n\\n    function eid() external view returns (uint32);\\n\\n    // this is an emergency function if a message cannot be verified for some reasons\\n    // required to provide _nextNonce to avoid race condition\\n    function skip(address _oapp, uint32 _srcEid, bytes32 _sender, uint64 _nonce) external;\\n\\n    function nilify(address _oapp, uint32 _srcEid, bytes32 _sender, uint64 _nonce, bytes32 _payloadHash) external;\\n\\n    function burn(address _oapp, uint32 _srcEid, bytes32 _sender, uint64 _nonce, bytes32 _payloadHash) external;\\n\\n    function nextGuid(address _sender, uint32 _dstEid, bytes32 _receiver) external view returns (bytes32);\\n\\n    function inboundNonce(address _receiver, uint32 _srcEid, bytes32 _sender) external view returns (uint64);\\n\\n    function outboundNonce(address _sender, uint32 _dstEid, bytes32 _receiver) external view returns (uint64);\\n\\n    function inboundPayloadHash(\\n        address _receiver,\\n        uint32 _srcEid,\\n        bytes32 _sender,\\n        uint64 _nonce\\n    ) external view returns (bytes32);\\n\\n    function lazyInboundNonce(address _receiver, uint32 _srcEid, bytes32 _sender) external view returns (uint64);\\n}\\n\",\"keccak256\":\"0x0878f64dffebf58c4165569416372f40860fab546b88cd926eba0d5cb6d8d972\",\"license\":\"MIT\"},\"@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/IMessagingComposer.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.8.0;\\n\\ninterface IMessagingComposer {\\n    event ComposeSent(address from, address to, bytes32 guid, uint16 index, bytes message);\\n    event ComposeDelivered(address from, address to, bytes32 guid, uint16 index);\\n    event LzComposeAlert(\\n        address indexed from,\\n        address indexed to,\\n        address indexed executor,\\n        bytes32 guid,\\n        uint16 index,\\n        uint256 gas,\\n        uint256 value,\\n        bytes message,\\n        bytes extraData,\\n        bytes reason\\n    );\\n\\n    function composeQueue(\\n        address _from,\\n        address _to,\\n        bytes32 _guid,\\n        uint16 _index\\n    ) external view returns (bytes32 messageHash);\\n\\n    function sendCompose(address _to, bytes32 _guid, uint16 _index, bytes calldata _message) external;\\n\\n    function lzCompose(\\n        address _from,\\n        address _to,\\n        bytes32 _guid,\\n        uint16 _index,\\n        bytes calldata _message,\\n        bytes calldata _extraData\\n    ) external payable;\\n}\\n\",\"keccak256\":\"0x85bc7090134529ec474866dc4bb1c48692d518c756eb0a961c82574829c51901\",\"license\":\"MIT\"},\"@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/IMessagingContext.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.8.0;\\n\\ninterface IMessagingContext {\\n    function isSendingMessage() external view returns (bool);\\n\\n    function getSendContext() external view returns (uint32 dstEid, address sender);\\n}\\n\",\"keccak256\":\"0xff0c546c2813dae3e440882f46b377375f7461b0714efd80bd3f0c6e5cb8da4e\",\"license\":\"MIT\"},\"@layerzerolabs/oapp-evm/contracts/oapp/OApp.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.20;\\n\\n// @dev Import the 'MessagingFee' and 'MessagingReceipt' so it's exposed to OApp implementers\\n// solhint-disable-next-line no-unused-import\\nimport { OAppSender, MessagingFee, MessagingReceipt } from \\\"./OAppSender.sol\\\";\\n// @dev Import the 'Origin' so it's exposed to OApp implementers\\n// solhint-disable-next-line no-unused-import\\nimport { OAppReceiver, Origin } from \\\"./OAppReceiver.sol\\\";\\nimport { OAppCore } from \\\"./OAppCore.sol\\\";\\n\\n/**\\n * @title OApp\\n * @dev Abstract contract serving as the base for OApp implementation, combining OAppSender and OAppReceiver functionality.\\n */\\nabstract contract OApp is OAppSender, OAppReceiver {\\n    /**\\n     * @dev Constructor to initialize the OApp with the provided endpoint and owner.\\n     * @param _endpoint The address of the LOCAL LayerZero endpoint.\\n     * @param _delegate The delegate capable of making OApp configurations inside of the endpoint.\\n     */\\n    constructor(address _endpoint, address _delegate) OAppCore(_endpoint, _delegate) {}\\n\\n    /**\\n     * @notice Retrieves the OApp version information.\\n     * @return senderVersion The version of the OAppSender.sol implementation.\\n     * @return receiverVersion The version of the OAppReceiver.sol implementation.\\n     */\\n    function oAppVersion()\\n        public\\n        pure\\n        virtual\\n        override(OAppSender, OAppReceiver)\\n        returns (uint64 senderVersion, uint64 receiverVersion)\\n    {\\n        return (SENDER_VERSION, RECEIVER_VERSION);\\n    }\\n}\\n\",\"keccak256\":\"0xac362c4c291fad2f1511a968424b2e78a5ad502d1c867bd31da04be742aca8c5\",\"license\":\"MIT\"},\"@layerzerolabs/oapp-evm/contracts/oapp/OAppCore.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.20;\\n\\nimport { Ownable } from \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\nimport { IOAppCore, ILayerZeroEndpointV2 } from \\\"./interfaces/IOAppCore.sol\\\";\\n\\n/**\\n * @title OAppCore\\n * @dev Abstract contract implementing the IOAppCore interface with basic OApp configurations.\\n */\\nabstract contract OAppCore is IOAppCore, Ownable {\\n    // The LayerZero endpoint associated with the given OApp\\n    ILayerZeroEndpointV2 public immutable endpoint;\\n\\n    // Mapping to store peers associated with corresponding endpoints\\n    mapping(uint32 eid => bytes32 peer) public peers;\\n\\n    /**\\n     * @dev Constructor to initialize the OAppCore with the provided endpoint and delegate.\\n     * @param _endpoint The address of the LOCAL Layer Zero endpoint.\\n     * @param _delegate The delegate capable of making OApp configurations inside of the endpoint.\\n     *\\n     * @dev The delegate typically should be set as the owner of the contract.\\n     */\\n    constructor(address _endpoint, address _delegate) {\\n        endpoint = ILayerZeroEndpointV2(_endpoint);\\n\\n        if (_delegate == address(0)) revert InvalidDelegate();\\n        endpoint.setDelegate(_delegate);\\n    }\\n\\n    /**\\n     * @notice Sets the peer address (OApp instance) for a corresponding endpoint.\\n     * @param _eid The endpoint ID.\\n     * @param _peer The address of the peer to be associated with the corresponding endpoint.\\n     *\\n     * @dev Only the owner/admin of the OApp can call this function.\\n     * @dev Indicates that the peer is trusted to send LayerZero messages to this OApp.\\n     * @dev Set this to bytes32(0) to remove the peer address.\\n     * @dev Peer is a bytes32 to accommodate non-evm chains.\\n     */\\n    function setPeer(uint32 _eid, bytes32 _peer) public virtual onlyOwner {\\n        _setPeer(_eid, _peer);\\n    }\\n\\n    /**\\n     * @notice Sets the peer address (OApp instance) for a corresponding endpoint.\\n     * @param _eid The endpoint ID.\\n     * @param _peer The address of the peer to be associated with the corresponding endpoint.\\n     *\\n     * @dev Indicates that the peer is trusted to send LayerZero messages to this OApp.\\n     * @dev Set this to bytes32(0) to remove the peer address.\\n     * @dev Peer is a bytes32 to accommodate non-evm chains.\\n     */\\n    function _setPeer(uint32 _eid, bytes32 _peer) internal virtual {\\n        peers[_eid] = _peer;\\n        emit PeerSet(_eid, _peer);\\n    }\\n\\n    /**\\n     * @notice Internal function to get the peer address associated with a specific endpoint; reverts if NOT set.\\n     * ie. the peer is set to bytes32(0).\\n     * @param _eid The endpoint ID.\\n     * @return peer The address of the peer associated with the specified endpoint.\\n     */\\n    function _getPeerOrRevert(uint32 _eid) internal view virtual returns (bytes32) {\\n        bytes32 peer = peers[_eid];\\n        if (peer == bytes32(0)) revert NoPeer(_eid);\\n        return peer;\\n    }\\n\\n    /**\\n     * @notice Sets the delegate address for the OApp.\\n     * @param _delegate The address of the delegate to be set.\\n     *\\n     * @dev Only the owner/admin of the OApp can call this function.\\n     * @dev Provides the ability for a delegate to set configs, on behalf of the OApp, directly on the Endpoint contract.\\n     */\\n    function setDelegate(address _delegate) public onlyOwner {\\n        endpoint.setDelegate(_delegate);\\n    }\\n}\\n\",\"keccak256\":\"0x13a9c2d1d2c1f086b8624f2e84c4a4702212daae36f701d92bb915b535cbe4cc\",\"license\":\"MIT\"},\"@layerzerolabs/oapp-evm/contracts/oapp/OAppReceiver.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.20;\\n\\nimport { IOAppReceiver, Origin } from \\\"./interfaces/IOAppReceiver.sol\\\";\\nimport { OAppCore } from \\\"./OAppCore.sol\\\";\\n\\n/**\\n * @title OAppReceiver\\n * @dev Abstract contract implementing the ILayerZeroReceiver interface and extending OAppCore for OApp receivers.\\n */\\nabstract contract OAppReceiver is IOAppReceiver, OAppCore {\\n    // Custom error message for when the caller is not the registered endpoint/\\n    error OnlyEndpoint(address addr);\\n\\n    // @dev The version of the OAppReceiver implementation.\\n    // @dev Version is bumped when changes are made to this contract.\\n    uint64 internal constant RECEIVER_VERSION = 2;\\n\\n    /**\\n     * @notice Retrieves the OApp version information.\\n     * @return senderVersion The version of the OAppSender.sol contract.\\n     * @return receiverVersion The version of the OAppReceiver.sol contract.\\n     *\\n     * @dev Providing 0 as the default for OAppSender version. Indicates that the OAppSender is not implemented.\\n     * ie. this is a RECEIVE only OApp.\\n     * @dev If the OApp uses both OAppSender and OAppReceiver, then this needs to be override returning the correct versions.\\n     */\\n    function oAppVersion() public view virtual returns (uint64 senderVersion, uint64 receiverVersion) {\\n        return (0, RECEIVER_VERSION);\\n    }\\n\\n    /**\\n     * @notice Indicates whether an address is an approved composeMsg sender to the Endpoint.\\n     * @dev _origin The origin information containing the source endpoint and sender address.\\n     *  - srcEid: The source chain endpoint ID.\\n     *  - sender: The sender address on the src chain.\\n     *  - nonce: The nonce of the message.\\n     * @dev _message The lzReceive payload.\\n     * @param _sender The sender address.\\n     * @return isSender Is a valid sender.\\n     *\\n     * @dev Applications can optionally choose to implement separate composeMsg senders that are NOT the bridging layer.\\n     * @dev The default sender IS the OAppReceiver implementer.\\n     */\\n    function isComposeMsgSender(\\n        Origin calldata /*_origin*/,\\n        bytes calldata /*_message*/,\\n        address _sender\\n    ) public view virtual returns (bool) {\\n        return _sender == address(this);\\n    }\\n\\n    /**\\n     * @notice Checks if the path initialization is allowed based on the provided origin.\\n     * @param origin The origin information containing the source endpoint and sender address.\\n     * @return Whether the path has been initialized.\\n     *\\n     * @dev This indicates to the endpoint that the OApp has enabled msgs for this particular path to be received.\\n     * @dev This defaults to assuming if a peer has been set, its initialized.\\n     * Can be overridden by the OApp if there is other logic to determine this.\\n     */\\n    function allowInitializePath(Origin calldata origin) public view virtual returns (bool) {\\n        return peers[origin.srcEid] == origin.sender;\\n    }\\n\\n    /**\\n     * @notice Retrieves the next nonce for a given source endpoint and sender address.\\n     * @dev _srcEid The source endpoint ID.\\n     * @dev _sender The sender address.\\n     * @return nonce The next nonce.\\n     *\\n     * @dev The path nonce starts from 1. If 0 is returned it means that there is NO nonce ordered enforcement.\\n     * @dev Is required by the off-chain executor to determine the OApp expects msg execution is ordered.\\n     * @dev This is also enforced by the OApp.\\n     * @dev By default this is NOT enabled. ie. nextNonce is hardcoded to return 0.\\n     */\\n    function nextNonce(uint32 /*_srcEid*/, bytes32 /*_sender*/) public view virtual returns (uint64 nonce) {\\n        return 0;\\n    }\\n\\n    /**\\n     * @dev Entry point for receiving messages or packets from the endpoint.\\n     * @param _origin The origin information containing the source endpoint and sender address.\\n     *  - srcEid: The source chain endpoint ID.\\n     *  - sender: The sender address on the src chain.\\n     *  - nonce: The nonce of the message.\\n     * @param _guid The unique identifier for the received LayerZero message.\\n     * @param _message The payload of the received message.\\n     * @param _executor The address of the executor for the received message.\\n     * @param _extraData Additional arbitrary data provided by the corresponding executor.\\n     *\\n     * @dev Entry point for receiving msg/packet from the LayerZero endpoint.\\n     */\\n    function lzReceive(\\n        Origin calldata _origin,\\n        bytes32 _guid,\\n        bytes calldata _message,\\n        address _executor,\\n        bytes calldata _extraData\\n    ) public payable virtual {\\n        // Ensures that only the endpoint can attempt to lzReceive() messages to this OApp.\\n        if (address(endpoint) != msg.sender) revert OnlyEndpoint(msg.sender);\\n\\n        // Ensure that the sender matches the expected peer for the source endpoint.\\n        if (_getPeerOrRevert(_origin.srcEid) != _origin.sender) revert OnlyPeer(_origin.srcEid, _origin.sender);\\n\\n        // Call the internal OApp implementation of lzReceive.\\n        _lzReceive(_origin, _guid, _message, _executor, _extraData);\\n    }\\n\\n    /**\\n     * @dev Internal function to implement lzReceive logic without needing to copy the basic parameter validation.\\n     */\\n    function _lzReceive(\\n        Origin calldata _origin,\\n        bytes32 _guid,\\n        bytes calldata _message,\\n        address _executor,\\n        bytes calldata _extraData\\n    ) internal virtual;\\n}\\n\",\"keccak256\":\"0x0174e9f1ec4cefe4b5adc26c392269c699b9ff75965364e5b7264426a462c70b\",\"license\":\"MIT\"},\"@layerzerolabs/oapp-evm/contracts/oapp/OAppSender.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.20;\\n\\nimport { SafeERC20, IERC20 } from \\\"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol\\\";\\nimport { MessagingParams, MessagingFee, MessagingReceipt } from \\\"@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/ILayerZeroEndpointV2.sol\\\";\\nimport { OAppCore } from \\\"./OAppCore.sol\\\";\\n\\n/**\\n * @title OAppSender\\n * @dev Abstract contract implementing the OAppSender functionality for sending messages to a LayerZero endpoint.\\n */\\nabstract contract OAppSender is OAppCore {\\n    using SafeERC20 for IERC20;\\n\\n    // Custom error messages\\n    error NotEnoughNative(uint256 msgValue);\\n    error LzTokenUnavailable();\\n\\n    // @dev The version of the OAppSender implementation.\\n    // @dev Version is bumped when changes are made to this contract.\\n    uint64 internal constant SENDER_VERSION = 1;\\n\\n    /**\\n     * @notice Retrieves the OApp version information.\\n     * @return senderVersion The version of the OAppSender.sol contract.\\n     * @return receiverVersion The version of the OAppReceiver.sol contract.\\n     *\\n     * @dev Providing 0 as the default for OAppReceiver version. Indicates that the OAppReceiver is not implemented.\\n     * ie. this is a SEND only OApp.\\n     * @dev If the OApp uses both OAppSender and OAppReceiver, then this needs to be override returning the correct versions\\n     */\\n    function oAppVersion() public view virtual returns (uint64 senderVersion, uint64 receiverVersion) {\\n        return (SENDER_VERSION, 0);\\n    }\\n\\n    /**\\n     * @dev Internal function to interact with the LayerZero EndpointV2.quote() for fee calculation.\\n     * @param _dstEid The destination endpoint ID.\\n     * @param _message The message payload.\\n     * @param _options Additional options for the message.\\n     * @param _payInLzToken Flag indicating whether to pay the fee in LZ tokens.\\n     * @return fee The calculated MessagingFee for the message.\\n     *      - nativeFee: The native fee for the message.\\n     *      - lzTokenFee: The LZ token fee for the message.\\n     */\\n    function _quote(\\n        uint32 _dstEid,\\n        bytes memory _message,\\n        bytes memory _options,\\n        bool _payInLzToken\\n    ) internal view virtual returns (MessagingFee memory fee) {\\n        return\\n            endpoint.quote(\\n                MessagingParams(_dstEid, _getPeerOrRevert(_dstEid), _message, _options, _payInLzToken),\\n                address(this)\\n            );\\n    }\\n\\n    /**\\n     * @dev Internal function to interact with the LayerZero EndpointV2.send() for sending a message.\\n     * @param _dstEid The destination endpoint ID.\\n     * @param _message The message payload.\\n     * @param _options Additional options for the message.\\n     * @param _fee The calculated LayerZero fee for the message.\\n     *      - nativeFee: The native fee.\\n     *      - lzTokenFee: The lzToken fee.\\n     * @param _refundAddress The address to receive any excess fee values sent to the endpoint.\\n     * @return receipt The receipt for the sent message.\\n     *      - guid: The unique identifier for the sent message.\\n     *      - nonce: The nonce of the sent message.\\n     *      - fee: The LayerZero fee incurred for the message.\\n     */\\n    function _lzSend(\\n        uint32 _dstEid,\\n        bytes memory _message,\\n        bytes memory _options,\\n        MessagingFee memory _fee,\\n        address _refundAddress\\n    ) internal virtual returns (MessagingReceipt memory receipt) {\\n        // @dev Push corresponding fees to the endpoint, any excess is sent back to the _refundAddress from the endpoint.\\n        uint256 messageValue = _payNative(_fee.nativeFee);\\n        if (_fee.lzTokenFee > 0) _payLzToken(_fee.lzTokenFee);\\n\\n        return\\n            // solhint-disable-next-line check-send-result\\n            endpoint.send{ value: messageValue }(\\n                MessagingParams(_dstEid, _getPeerOrRevert(_dstEid), _message, _options, _fee.lzTokenFee > 0),\\n                _refundAddress\\n            );\\n    }\\n\\n    /**\\n     * @dev Internal function to pay the native fee associated with the message.\\n     * @param _nativeFee The native fee to be paid.\\n     * @return nativeFee The amount of native currency paid.\\n     *\\n     * @dev If the OApp needs to initiate MULTIPLE LayerZero messages in a single transaction,\\n     * this will need to be overridden because msg.value would contain multiple lzFees.\\n     * @dev Should be overridden in the event the LayerZero endpoint requires a different native currency.\\n     * @dev Some EVMs use an ERC20 as a method for paying transactions/gasFees.\\n     * @dev The endpoint is EITHER/OR, ie. it will NOT support both types of native payment at a time.\\n     */\\n    function _payNative(uint256 _nativeFee) internal virtual returns (uint256 nativeFee) {\\n        if (msg.value != _nativeFee) revert NotEnoughNative(msg.value);\\n        return _nativeFee;\\n    }\\n\\n    /**\\n     * @dev Internal function to pay the LZ token fee associated with the message.\\n     * @param _lzTokenFee The LZ token fee to be paid.\\n     *\\n     * @dev If the caller is trying to pay in the specified lzToken, then the lzTokenFee is passed to the endpoint.\\n     * @dev Any excess sent, is passed back to the specified _refundAddress in the _lzSend().\\n     */\\n    function _payLzToken(uint256 _lzTokenFee) internal virtual {\\n        // @dev Cannot cache the token because it is not immutable in the endpoint.\\n        address lzToken = endpoint.lzToken();\\n        if (lzToken == address(0)) revert LzTokenUnavailable();\\n\\n        // Pay LZ token fee by sending tokens to the endpoint.\\n        IERC20(lzToken).safeTransferFrom(msg.sender, address(endpoint), _lzTokenFee);\\n    }\\n}\\n\",\"keccak256\":\"0x518cf4adca601923ed4baa6619846a253ea32b8d8775f8bc1faa3dfac7f67c20\",\"license\":\"MIT\"},\"@layerzerolabs/oapp-evm/contracts/oapp/interfaces/IOAppCore.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.20;\\n\\nimport { ILayerZeroEndpointV2 } from \\\"@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/ILayerZeroEndpointV2.sol\\\";\\n\\n/**\\n * @title IOAppCore\\n */\\ninterface IOAppCore {\\n    // Custom error messages\\n    error OnlyPeer(uint32 eid, bytes32 sender);\\n    error NoPeer(uint32 eid);\\n    error InvalidEndpointCall();\\n    error InvalidDelegate();\\n\\n    // Event emitted when a peer (OApp) is set for a corresponding endpoint\\n    event PeerSet(uint32 eid, bytes32 peer);\\n\\n    /**\\n     * @notice Retrieves the OApp version information.\\n     * @return senderVersion The version of the OAppSender.sol contract.\\n     * @return receiverVersion The version of the OAppReceiver.sol contract.\\n     */\\n    function oAppVersion() external view returns (uint64 senderVersion, uint64 receiverVersion);\\n\\n    /**\\n     * @notice Retrieves the LayerZero endpoint associated with the OApp.\\n     * @return iEndpoint The LayerZero endpoint as an interface.\\n     */\\n    function endpoint() external view returns (ILayerZeroEndpointV2 iEndpoint);\\n\\n    /**\\n     * @notice Retrieves the peer (OApp) associated with a corresponding endpoint.\\n     * @param _eid The endpoint ID.\\n     * @return peer The peer address (OApp instance) associated with the corresponding endpoint.\\n     */\\n    function peers(uint32 _eid) external view returns (bytes32 peer);\\n\\n    /**\\n     * @notice Sets the peer address (OApp instance) for a corresponding endpoint.\\n     * @param _eid The endpoint ID.\\n     * @param _peer The address of the peer to be associated with the corresponding endpoint.\\n     */\\n    function setPeer(uint32 _eid, bytes32 _peer) external;\\n\\n    /**\\n     * @notice Sets the delegate address for the OApp Core.\\n     * @param _delegate The address of the delegate to be set.\\n     */\\n    function setDelegate(address _delegate) external;\\n}\\n\",\"keccak256\":\"0x40e49f2de74506e1da5dcaed53a39853f691647f4ceb0fccc8f49a68d3f47c58\",\"license\":\"MIT\"},\"@layerzerolabs/oapp-evm/contracts/oapp/interfaces/IOAppOptionsType3.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Struct representing enforced option parameters.\\n */\\nstruct EnforcedOptionParam {\\n    uint32 eid; // Endpoint ID\\n    uint16 msgType; // Message Type\\n    bytes options; // Additional options\\n}\\n\\n/**\\n * @title IOAppOptionsType3\\n * @dev Interface for the OApp with Type 3 Options, allowing the setting and combining of enforced options.\\n */\\ninterface IOAppOptionsType3 {\\n    // Custom error message for invalid options\\n    error InvalidOptions(bytes options);\\n\\n    // Event emitted when enforced options are set\\n    event EnforcedOptionSet(EnforcedOptionParam[] _enforcedOptions);\\n\\n    /**\\n     * @notice Sets enforced options for specific endpoint and message type combinations.\\n     * @param _enforcedOptions An array of EnforcedOptionParam structures specifying enforced options.\\n     */\\n    function setEnforcedOptions(EnforcedOptionParam[] calldata _enforcedOptions) external;\\n\\n    /**\\n     * @notice Combines options for a given endpoint and message type.\\n     * @param _eid The endpoint ID.\\n     * @param _msgType The OApp message type.\\n     * @param _extraOptions Additional options passed by the caller.\\n     * @return options The combination of caller specified options AND enforced options.\\n     */\\n    function combineOptions(\\n        uint32 _eid,\\n        uint16 _msgType,\\n        bytes calldata _extraOptions\\n    ) external view returns (bytes memory options);\\n}\\n\",\"keccak256\":\"0x9fc08a51e9d7c9c710c4eb26f84fe77228305ad7da63fa486ff24ebf2f3bc461\",\"license\":\"MIT\"},\"@layerzerolabs/oapp-evm/contracts/oapp/interfaces/IOAppReceiver.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nimport { ILayerZeroReceiver, Origin } from \\\"@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/ILayerZeroReceiver.sol\\\";\\n\\ninterface IOAppReceiver is ILayerZeroReceiver {\\n    /**\\n     * @notice Indicates whether an address is an approved composeMsg sender to the Endpoint.\\n     * @param _origin The origin information containing the source endpoint and sender address.\\n     *  - srcEid: The source chain endpoint ID.\\n     *  - sender: The sender address on the src chain.\\n     *  - nonce: The nonce of the message.\\n     * @param _message The lzReceive payload.\\n     * @param _sender The sender address.\\n     * @return isSender Is a valid sender.\\n     *\\n     * @dev Applications can optionally choose to implement a separate composeMsg sender that is NOT the bridging layer.\\n     * @dev The default sender IS the OAppReceiver implementer.\\n     */\\n    function isComposeMsgSender(\\n        Origin calldata _origin,\\n        bytes calldata _message,\\n        address _sender\\n    ) external view returns (bool isSender);\\n}\\n\",\"keccak256\":\"0xd26135185e19b3732746d4a9e2923e896f28dec8664bab161faea2ee26fcdc3d\",\"license\":\"MIT\"},\"@layerzerolabs/oapp-evm/contracts/oapp/libs/OAppOptionsType3.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.20;\\n\\nimport { Ownable } from \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\nimport { IOAppOptionsType3, EnforcedOptionParam } from \\\"../interfaces/IOAppOptionsType3.sol\\\";\\n\\n/**\\n * @title OAppOptionsType3\\n * @dev Abstract contract implementing the IOAppOptionsType3 interface with type 3 options.\\n */\\nabstract contract OAppOptionsType3 is IOAppOptionsType3, Ownable {\\n    uint16 internal constant OPTION_TYPE_3 = 3;\\n\\n    // @dev The \\\"msgType\\\" should be defined in the child contract.\\n    mapping(uint32 eid => mapping(uint16 msgType => bytes enforcedOption)) public enforcedOptions;\\n\\n    /**\\n     * @dev Sets the enforced options for specific endpoint and message type combinations.\\n     * @param _enforcedOptions An array of EnforcedOptionParam structures specifying enforced options.\\n     *\\n     * @dev Only the owner/admin of the OApp can call this function.\\n     * @dev Provides a way for the OApp to enforce things like paying for PreCrime, AND/OR minimum dst lzReceive gas amounts etc.\\n     * @dev These enforced options can vary as the potential options/execution on the remote may differ as per the msgType.\\n     * eg. Amount of lzReceive() gas necessary to deliver a lzCompose() message adds overhead you dont want to pay\\n     * if you are only making a standard LayerZero message ie. lzReceive() WITHOUT sendCompose().\\n     */\\n    function setEnforcedOptions(EnforcedOptionParam[] calldata _enforcedOptions) public virtual onlyOwner {\\n        _setEnforcedOptions(_enforcedOptions);\\n    }\\n\\n    /**\\n     * @dev Sets the enforced options for specific endpoint and message type combinations.\\n     * @param _enforcedOptions An array of EnforcedOptionParam structures specifying enforced options.\\n     *\\n     * @dev Provides a way for the OApp to enforce things like paying for PreCrime, AND/OR minimum dst lzReceive gas amounts etc.\\n     * @dev These enforced options can vary as the potential options/execution on the remote may differ as per the msgType.\\n     * eg. Amount of lzReceive() gas necessary to deliver a lzCompose() message adds overhead you dont want to pay\\n     * if you are only making a standard LayerZero message ie. lzReceive() WITHOUT sendCompose().\\n     */\\n    function _setEnforcedOptions(EnforcedOptionParam[] memory _enforcedOptions) internal virtual {\\n        for (uint256 i = 0; i < _enforcedOptions.length; i++) {\\n            // @dev Enforced options are only available for optionType 3, as type 1 and 2 dont support combining.\\n            _assertOptionsType3(_enforcedOptions[i].options);\\n            enforcedOptions[_enforcedOptions[i].eid][_enforcedOptions[i].msgType] = _enforcedOptions[i].options;\\n        }\\n\\n        emit EnforcedOptionSet(_enforcedOptions);\\n    }\\n\\n    /**\\n     * @notice Combines options for a given endpoint and message type.\\n     * @param _eid The endpoint ID.\\n     * @param _msgType The OAPP message type.\\n     * @param _extraOptions Additional options passed by the caller.\\n     * @return options The combination of caller specified options AND enforced options.\\n     *\\n     * @dev If there is an enforced lzReceive option:\\n     * - {gasLimit: 200k, msg.value: 1 ether} AND a caller supplies a lzReceive option: {gasLimit: 100k, msg.value: 0.5 ether}\\n     * - The resulting options will be {gasLimit: 300k, msg.value: 1.5 ether} when the message is executed on the remote lzReceive() function.\\n     * @dev This presence of duplicated options is handled off-chain in the verifier/executor.\\n     */\\n    function combineOptions(\\n        uint32 _eid,\\n        uint16 _msgType,\\n        bytes calldata _extraOptions\\n    ) public view virtual returns (bytes memory) {\\n        bytes memory enforced = enforcedOptions[_eid][_msgType];\\n\\n        // No enforced options, pass whatever the caller supplied, even if it's empty or legacy type 1/2 options.\\n        if (enforced.length == 0) return _extraOptions;\\n\\n        // No caller options, return enforced\\n        if (_extraOptions.length == 0) return enforced;\\n\\n        // @dev If caller provided _extraOptions, must be type 3 as its the ONLY type that can be combined.\\n        if (_extraOptions.length >= 2) {\\n            _assertOptionsType3(_extraOptions);\\n            // @dev Remove the first 2 bytes containing the type from the _extraOptions and combine with enforced.\\n            return bytes.concat(enforced, _extraOptions[2:]);\\n        }\\n\\n        // No valid set of options was found.\\n        revert InvalidOptions(_extraOptions);\\n    }\\n\\n    /**\\n     * @dev Internal function to assert that options are of type 3.\\n     * @param _options The options to be checked.\\n     */\\n    function _assertOptionsType3(bytes memory _options) internal pure virtual {\\n        uint16 optionsType;\\n        assembly {\\n            optionsType := mload(add(_options, 2))\\n        }\\n        if (optionsType != OPTION_TYPE_3) revert InvalidOptions(_options);\\n    }\\n}\\n\",\"keccak256\":\"0x5275636cd47e660a2fdf6c7fe9d41ff3cc866b785cc8a9d88c1b8ca983509f01\",\"license\":\"MIT\"},\"@openzeppelin/contracts/access/Ownable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {Context} from \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is set to the address provided by the deployer. This can\\n * later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    /**\\n     * @dev The caller account is not authorized to perform an operation.\\n     */\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    /**\\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\\n     */\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\\n     */\\n    constructor(address initialOwner) {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb\",\"license\":\"MIT\"},\"@openzeppelin/contracts/interfaces/IERC1363.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (interfaces/IERC1363.sol)\\n\\npragma solidity >=0.6.2;\\n\\nimport {IERC20} from \\\"./IERC20.sol\\\";\\nimport {IERC165} from \\\"./IERC165.sol\\\";\\n\\n/**\\n * @title IERC1363\\n * @dev Interface of the ERC-1363 standard as defined in the https://eips.ethereum.org/EIPS/eip-1363[ERC-1363].\\n *\\n * Defines an extension interface for ERC-20 tokens that supports executing code on a recipient contract\\n * after `transfer` or `transferFrom`, or code on a spender contract after `approve`, in a single transaction.\\n */\\ninterface IERC1363 is IERC20, IERC165 {\\n    /*\\n     * Note: the ERC-165 identifier for this interface is 0xb0202a11.\\n     * 0xb0202a11 ===\\n     *   bytes4(keccak256('transferAndCall(address,uint256)')) ^\\n     *   bytes4(keccak256('transferAndCall(address,uint256,bytes)')) ^\\n     *   bytes4(keccak256('transferFromAndCall(address,address,uint256)')) ^\\n     *   bytes4(keccak256('transferFromAndCall(address,address,uint256,bytes)')) ^\\n     *   bytes4(keccak256('approveAndCall(address,uint256)')) ^\\n     *   bytes4(keccak256('approveAndCall(address,uint256,bytes)'))\\n     */\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from the caller's account to `to`\\n     * and then calls {IERC1363Receiver-onTransferReceived} on `to`.\\n     * @param to The address which you want to transfer to.\\n     * @param value The amount of tokens to be transferred.\\n     * @return A boolean value indicating whether the operation succeeded unless throwing.\\n     */\\n    function transferAndCall(address to, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from the caller's account to `to`\\n     * and then calls {IERC1363Receiver-onTransferReceived} on `to`.\\n     * @param to The address which you want to transfer to.\\n     * @param value The amount of tokens to be transferred.\\n     * @param data Additional data with no specified format, sent in call to `to`.\\n     * @return A boolean value indicating whether the operation succeeded unless throwing.\\n     */\\n    function transferAndCall(address to, uint256 value, bytes calldata data) external returns (bool);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from `from` to `to` using the allowance mechanism\\n     * and then calls {IERC1363Receiver-onTransferReceived} on `to`.\\n     * @param from The address which you want to send tokens from.\\n     * @param to The address which you want to transfer to.\\n     * @param value The amount of tokens to be transferred.\\n     * @return A boolean value indicating whether the operation succeeded unless throwing.\\n     */\\n    function transferFromAndCall(address from, address to, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from `from` to `to` using the allowance mechanism\\n     * and then calls {IERC1363Receiver-onTransferReceived} on `to`.\\n     * @param from The address which you want to send tokens from.\\n     * @param to The address which you want to transfer to.\\n     * @param value The amount of tokens to be transferred.\\n     * @param data Additional data with no specified format, sent in call to `to`.\\n     * @return A boolean value indicating whether the operation succeeded unless throwing.\\n     */\\n    function transferFromAndCall(address from, address to, uint256 value, bytes calldata data) external returns (bool);\\n\\n    /**\\n     * @dev Sets a `value` amount of tokens as the allowance of `spender` over the\\n     * caller's tokens and then calls {IERC1363Spender-onApprovalReceived} on `spender`.\\n     * @param spender The address which will spend the funds.\\n     * @param value The amount of tokens to be spent.\\n     * @return A boolean value indicating whether the operation succeeded unless throwing.\\n     */\\n    function approveAndCall(address spender, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Sets a `value` amount of tokens as the allowance of `spender` over the\\n     * caller's tokens and then calls {IERC1363Spender-onApprovalReceived} on `spender`.\\n     * @param spender The address which will spend the funds.\\n     * @param value The amount of tokens to be spent.\\n     * @param data Additional data with no specified format, sent in call to `spender`.\\n     * @return A boolean value indicating whether the operation succeeded unless throwing.\\n     */\\n    function approveAndCall(address spender, uint256 value, bytes calldata data) external returns (bool);\\n}\\n\",\"keccak256\":\"0xd5ea07362ab630a6a3dee4285a74cf2377044ca2e4be472755ad64d7c5d4b69d\",\"license\":\"MIT\"},\"@openzeppelin/contracts/interfaces/IERC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (interfaces/IERC165.sol)\\n\\npragma solidity >=0.4.16;\\n\\nimport {IERC165} from \\\"../utils/introspection/IERC165.sol\\\";\\n\",\"keccak256\":\"0x0afcb7e740d1537b252cb2676f600465ce6938398569f09ba1b9ca240dde2dfc\",\"license\":\"MIT\"},\"@openzeppelin/contracts/interfaces/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (interfaces/IERC20.sol)\\n\\npragma solidity >=0.4.16;\\n\\nimport {IERC20} from \\\"../token/ERC20/IERC20.sol\\\";\\n\",\"keccak256\":\"0x1a6221315ce0307746c2c4827c125d821ee796c74a676787762f4778671d4f44\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (token/ERC20/IERC20.sol)\\n\\npragma solidity >=0.4.16;\\n\\n/**\\n * @dev Interface of the ERC-20 standard as defined in the ERC.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n\\n    /**\\n     * @dev Returns the value of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the value of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from the caller's account to `to`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address to, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets a `value` amount of tokens as the allowance of `spender` over the\\n     * caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from `from` to `to` using the\\n     * allowance mechanism. `value` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(address from, address to, uint256 value) external returns (bool);\\n}\\n\",\"keccak256\":\"0x74ed01eb66b923d0d0cfe3be84604ac04b76482a55f9dd655e1ef4d367f95bc2\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.3.0) (token/ERC20/utils/SafeERC20.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {IERC20} from \\\"../IERC20.sol\\\";\\nimport {IERC1363} from \\\"../../../interfaces/IERC1363.sol\\\";\\n\\n/**\\n * @title SafeERC20\\n * @dev Wrappers around ERC-20 operations that throw on failure (when the token\\n * contract returns false). Tokens that return no value (and instead revert or\\n * throw on failure) are also supported, non-reverting calls are assumed to be\\n * successful.\\n * To use this library you can add a `using SafeERC20 for IERC20;` statement to your contract,\\n * which allows you to call the safe operations as `token.safeTransfer(...)`, etc.\\n */\\nlibrary SafeERC20 {\\n    /**\\n     * @dev An operation with an ERC-20 token failed.\\n     */\\n    error SafeERC20FailedOperation(address token);\\n\\n    /**\\n     * @dev Indicates a failed `decreaseAllowance` request.\\n     */\\n    error SafeERC20FailedDecreaseAllowance(address spender, uint256 currentAllowance, uint256 requestedDecrease);\\n\\n    /**\\n     * @dev Transfer `value` amount of `token` from the calling contract to `to`. If `token` returns no value,\\n     * non-reverting calls are assumed to be successful.\\n     */\\n    function safeTransfer(IERC20 token, address to, uint256 value) internal {\\n        _callOptionalReturn(token, abi.encodeCall(token.transfer, (to, value)));\\n    }\\n\\n    /**\\n     * @dev Transfer `value` amount of `token` from `from` to `to`, spending the approval given by `from` to the\\n     * calling contract. If `token` returns no value, non-reverting calls are assumed to be successful.\\n     */\\n    function safeTransferFrom(IERC20 token, address from, address to, uint256 value) internal {\\n        _callOptionalReturn(token, abi.encodeCall(token.transferFrom, (from, to, value)));\\n    }\\n\\n    /**\\n     * @dev Variant of {safeTransfer} that returns a bool instead of reverting if the operation is not successful.\\n     */\\n    function trySafeTransfer(IERC20 token, address to, uint256 value) internal returns (bool) {\\n        return _callOptionalReturnBool(token, abi.encodeCall(token.transfer, (to, value)));\\n    }\\n\\n    /**\\n     * @dev Variant of {safeTransferFrom} that returns a bool instead of reverting if the operation is not successful.\\n     */\\n    function trySafeTransferFrom(IERC20 token, address from, address to, uint256 value) internal returns (bool) {\\n        return _callOptionalReturnBool(token, abi.encodeCall(token.transferFrom, (from, to, value)));\\n    }\\n\\n    /**\\n     * @dev Increase the calling contract's allowance toward `spender` by `value`. If `token` returns no value,\\n     * non-reverting calls are assumed to be successful.\\n     *\\n     * IMPORTANT: If the token implements ERC-7674 (ERC-20 with temporary allowance), and if the \\\"client\\\"\\n     * smart contract uses ERC-7674 to set temporary allowances, then the \\\"client\\\" smart contract should avoid using\\n     * this function. Performing a {safeIncreaseAllowance} or {safeDecreaseAllowance} operation on a token contract\\n     * that has a non-zero temporary allowance (for that particular owner-spender) will result in unexpected behavior.\\n     */\\n    function safeIncreaseAllowance(IERC20 token, address spender, uint256 value) internal {\\n        uint256 oldAllowance = token.allowance(address(this), spender);\\n        forceApprove(token, spender, oldAllowance + value);\\n    }\\n\\n    /**\\n     * @dev Decrease the calling contract's allowance toward `spender` by `requestedDecrease`. If `token` returns no\\n     * value, non-reverting calls are assumed to be successful.\\n     *\\n     * IMPORTANT: If the token implements ERC-7674 (ERC-20 with temporary allowance), and if the \\\"client\\\"\\n     * smart contract uses ERC-7674 to set temporary allowances, then the \\\"client\\\" smart contract should avoid using\\n     * this function. Performing a {safeIncreaseAllowance} or {safeDecreaseAllowance} operation on a token contract\\n     * that has a non-zero temporary allowance (for that particular owner-spender) will result in unexpected behavior.\\n     */\\n    function safeDecreaseAllowance(IERC20 token, address spender, uint256 requestedDecrease) internal {\\n        unchecked {\\n            uint256 currentAllowance = token.allowance(address(this), spender);\\n            if (currentAllowance < requestedDecrease) {\\n                revert SafeERC20FailedDecreaseAllowance(spender, currentAllowance, requestedDecrease);\\n            }\\n            forceApprove(token, spender, currentAllowance - requestedDecrease);\\n        }\\n    }\\n\\n    /**\\n     * @dev Set the calling contract's allowance toward `spender` to `value`. If `token` returns no value,\\n     * non-reverting calls are assumed to be successful. Meant to be used with tokens that require the approval\\n     * to be set to zero before setting it to a non-zero value, such as USDT.\\n     *\\n     * NOTE: If the token implements ERC-7674, this function will not modify any temporary allowance. This function\\n     * only sets the \\\"standard\\\" allowance. Any temporary allowance will remain active, in addition to the value being\\n     * set here.\\n     */\\n    function forceApprove(IERC20 token, address spender, uint256 value) internal {\\n        bytes memory approvalCall = abi.encodeCall(token.approve, (spender, value));\\n\\n        if (!_callOptionalReturnBool(token, approvalCall)) {\\n            _callOptionalReturn(token, abi.encodeCall(token.approve, (spender, 0)));\\n            _callOptionalReturn(token, approvalCall);\\n        }\\n    }\\n\\n    /**\\n     * @dev Performs an {ERC1363} transferAndCall, with a fallback to the simple {ERC20} transfer if the target has no\\n     * code. This can be used to implement an {ERC721}-like safe transfer that rely on {ERC1363} checks when\\n     * targeting contracts.\\n     *\\n     * Reverts if the returned value is other than `true`.\\n     */\\n    function transferAndCallRelaxed(IERC1363 token, address to, uint256 value, bytes memory data) internal {\\n        if (to.code.length == 0) {\\n            safeTransfer(token, to, value);\\n        } else if (!token.transferAndCall(to, value, data)) {\\n            revert SafeERC20FailedOperation(address(token));\\n        }\\n    }\\n\\n    /**\\n     * @dev Performs an {ERC1363} transferFromAndCall, with a fallback to the simple {ERC20} transferFrom if the target\\n     * has no code. This can be used to implement an {ERC721}-like safe transfer that rely on {ERC1363} checks when\\n     * targeting contracts.\\n     *\\n     * Reverts if the returned value is other than `true`.\\n     */\\n    function transferFromAndCallRelaxed(\\n        IERC1363 token,\\n        address from,\\n        address to,\\n        uint256 value,\\n        bytes memory data\\n    ) internal {\\n        if (to.code.length == 0) {\\n            safeTransferFrom(token, from, to, value);\\n        } else if (!token.transferFromAndCall(from, to, value, data)) {\\n            revert SafeERC20FailedOperation(address(token));\\n        }\\n    }\\n\\n    /**\\n     * @dev Performs an {ERC1363} approveAndCall, with a fallback to the simple {ERC20} approve if the target has no\\n     * code. This can be used to implement an {ERC721}-like safe transfer that rely on {ERC1363} checks when\\n     * targeting contracts.\\n     *\\n     * NOTE: When the recipient address (`to`) has no code (i.e. is an EOA), this function behaves as {forceApprove}.\\n     * Opposedly, when the recipient address (`to`) has code, this function only attempts to call {ERC1363-approveAndCall}\\n     * once without retrying, and relies on the returned value to be true.\\n     *\\n     * Reverts if the returned value is other than `true`.\\n     */\\n    function approveAndCallRelaxed(IERC1363 token, address to, uint256 value, bytes memory data) internal {\\n        if (to.code.length == 0) {\\n            forceApprove(token, to, value);\\n        } else if (!token.approveAndCall(to, value, data)) {\\n            revert SafeERC20FailedOperation(address(token));\\n        }\\n    }\\n\\n    /**\\n     * @dev Imitates a Solidity high-level call (i.e. a regular function call to a contract), relaxing the requirement\\n     * on the return value: the return value is optional (but if data is returned, it must not be false).\\n     * @param token The token targeted by the call.\\n     * @param data The call data (encoded using abi.encode or one of its variants).\\n     *\\n     * This is a variant of {_callOptionalReturnBool} that reverts if call fails to meet the requirements.\\n     */\\n    function _callOptionalReturn(IERC20 token, bytes memory data) private {\\n        uint256 returnSize;\\n        uint256 returnValue;\\n        assembly (\\\"memory-safe\\\") {\\n            let success := call(gas(), token, 0, add(data, 0x20), mload(data), 0, 0x20)\\n            // bubble errors\\n            if iszero(success) {\\n                let ptr := mload(0x40)\\n                returndatacopy(ptr, 0, returndatasize())\\n                revert(ptr, returndatasize())\\n            }\\n            returnSize := returndatasize()\\n            returnValue := mload(0)\\n        }\\n\\n        if (returnSize == 0 ? address(token).code.length == 0 : returnValue != 1) {\\n            revert SafeERC20FailedOperation(address(token));\\n        }\\n    }\\n\\n    /**\\n     * @dev Imitates a Solidity high-level call (i.e. a regular function call to a contract), relaxing the requirement\\n     * on the return value: the return value is optional (but if data is returned, it must not be false).\\n     * @param token The token targeted by the call.\\n     * @param data The call data (encoded using abi.encode or one of its variants).\\n     *\\n     * This is a variant of {_callOptionalReturn} that silently catches all reverts and returns a bool instead.\\n     */\\n    function _callOptionalReturnBool(IERC20 token, bytes memory data) private returns (bool) {\\n        bool success;\\n        uint256 returnSize;\\n        uint256 returnValue;\\n        assembly (\\\"memory-safe\\\") {\\n            success := call(gas(), token, 0, add(data, 0x20), mload(data), 0, 0x20)\\n            returnSize := returndatasize()\\n            returnValue := mload(0)\\n        }\\n        return success && (returnSize == 0 ? address(token).code.length > 0 : returnValue == 1);\\n    }\\n}\\n\",\"keccak256\":\"0x982c5cb790ab941d1e04f807120a71709d4c313ba0bfc16006447ffbd27fbbd5\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/ReentrancyGuard.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.1.0) (utils/ReentrancyGuard.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Contract module that helps prevent reentrant calls to a function.\\n *\\n * Inheriting from `ReentrancyGuard` will make the {nonReentrant} modifier\\n * available, which can be applied to functions to make sure there are no nested\\n * (reentrant) calls to them.\\n *\\n * Note that because there is a single `nonReentrant` guard, functions marked as\\n * `nonReentrant` may not call one another. This can be worked around by making\\n * those functions `private`, and then adding `external` `nonReentrant` entry\\n * points to them.\\n *\\n * TIP: If EIP-1153 (transient storage) is available on the chain you're deploying at,\\n * consider using {ReentrancyGuardTransient} instead.\\n *\\n * TIP: If you would like to learn more about reentrancy and alternative ways\\n * to protect against it, check out our blog post\\n * https://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].\\n */\\nabstract contract ReentrancyGuard {\\n    // Booleans are more expensive than uint256 or any type that takes up a full\\n    // word because each write operation emits an extra SLOAD to first read the\\n    // slot's contents, replace the bits taken up by the boolean, and then write\\n    // back. This is the compiler's defense against contract upgrades and\\n    // pointer aliasing, and it cannot be disabled.\\n\\n    // The values being non-zero value makes deployment a bit more expensive,\\n    // but in exchange the refund on every call to nonReentrant will be lower in\\n    // amount. Since refunds are capped to a percentage of the total\\n    // transaction's gas, it is best to keep them low in cases like this one, to\\n    // increase the likelihood of the full refund coming into effect.\\n    uint256 private constant NOT_ENTERED = 1;\\n    uint256 private constant ENTERED = 2;\\n\\n    uint256 private _status;\\n\\n    /**\\n     * @dev Unauthorized reentrant call.\\n     */\\n    error ReentrancyGuardReentrantCall();\\n\\n    constructor() {\\n        _status = NOT_ENTERED;\\n    }\\n\\n    /**\\n     * @dev Prevents a contract from calling itself, directly or indirectly.\\n     * Calling a `nonReentrant` function from another `nonReentrant`\\n     * function is not supported. It is possible to prevent this from happening\\n     * by making the `nonReentrant` function external, and making it call a\\n     * `private` function that does the actual work.\\n     */\\n    modifier nonReentrant() {\\n        _nonReentrantBefore();\\n        _;\\n        _nonReentrantAfter();\\n    }\\n\\n    function _nonReentrantBefore() private {\\n        // On the first call to nonReentrant, _status will be NOT_ENTERED\\n        if (_status == ENTERED) {\\n            revert ReentrancyGuardReentrantCall();\\n        }\\n\\n        // Any calls to nonReentrant after this point will fail\\n        _status = ENTERED;\\n    }\\n\\n    function _nonReentrantAfter() private {\\n        // By storing the original value once again, a refund is triggered (see\\n        // https://eips.ethereum.org/EIPS/eip-2200)\\n        _status = NOT_ENTERED;\\n    }\\n\\n    /**\\n     * @dev Returns true if the reentrancy guard is currently set to \\\"entered\\\", which indicates there is a\\n     * `nonReentrant` function in the call stack.\\n     */\\n    function _reentrancyGuardEntered() internal view returns (bool) {\\n        return _status == ENTERED;\\n    }\\n}\\n\",\"keccak256\":\"0x11a5a79827df29e915a12740caf62fe21ebe27c08c9ae3e09abe9ee3ba3866d3\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.4.0) (utils/introspection/IERC165.sol)\\n\\npragma solidity >=0.4.16;\\n\\n/**\\n * @dev Interface of the ERC-165 standard, as defined in the\\n * https://eips.ethereum.org/EIPS/eip-165[ERC].\\n *\\n * Implementers can declare support of contract interfaces, which can then be\\n * queried by others ({ERC165Checker}).\\n *\\n * For an implementation, see {ERC165}.\\n */\\ninterface IERC165 {\\n    /**\\n     * @dev Returns true if this contract implements the interface defined by\\n     * `interfaceId`. See the corresponding\\n     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[ERC section]\\n     * to learn more about how these ids are created.\\n     *\\n     * This function call must use less than 30 000 gas.\\n     */\\n    function supportsInterface(bytes4 interfaceId) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x8891738ffe910f0cf2da09566928589bf5d63f4524dd734fd9cedbac3274dd5c\",\"license\":\"MIT\"},\"contracts/MetUserState.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.20;\\r\\n\\r\\nimport { OApp, Origin } from \\\"@layerzerolabs/oapp-evm/contracts/oapp/OApp.sol\\\";\\r\\nimport { OAppOptionsType3 } from \\\"@layerzerolabs/oapp-evm/contracts/oapp/libs/OAppOptionsType3.sol\\\";\\r\\nimport { Ownable } from \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\r\\nimport \\\"@openzeppelin/contracts/utils/ReentrancyGuard.sol\\\";\\r\\n\\r\\n/**\\r\\n * @title MetUserState\\r\\n * @dev Contract for managing user staking state across chains using LayerZero\\r\\n */\\r\\ncontract MetUserState is OApp, OAppOptionsType3, ReentrancyGuard {\\r\\n    // Message types - must match TokenStaking constants\\r\\n    uint8 public constant STAKE_MSG_TYPE = 1;\\r\\n    uint8 public constant UNSTAKE_MSG_TYPE = 2;\\r\\n\\r\\n    // Valid lock durations (must match TokenStaking constants)\\r\\n    uint256 public constant THREE_MONTHS_DURATION = 3 * 30 days; // 90 days\\r\\n    uint256 public constant SIX_MONTHS_DURATION = 6 * 30 days; // 180 days\\r\\n\\r\\n    // Bounds for lock duration validation\\r\\n    uint256 public constant MIN_LOCK_DURATION = 1 days; // Minimum 1 day\\r\\n    uint256 public constant MAX_LOCK_DURATION = 2 * 365 days; // Maximum 2 years (730 days)\\r\\n\\r\\n    event StakeReceived(\\r\\n        address indexed user,\\r\\n        uint256 amount,\\r\\n        uint256 lockDuration,\\r\\n        uint256 stakeIndex,\\r\\n        uint256 blockNumber,\\r\\n        uint32 srcEid\\r\\n    );\\r\\n    event UnstakeReceived(address indexed user, uint256 stakeIndex, uint256 blockNumber, uint32 srcEid);\\r\\n    event MessageProcessed(uint8 messageType, address indexed user, bytes32 guid);\\r\\n    event InvalidMessageReceived(uint8 messageType, bytes32 guid);\\r\\n    event StakeRepaired(address indexed user, uint256 stakeIndex, uint256 oldAmount, uint256 newAmount, string reason);\\r\\n\\r\\n    struct Stake {\\r\\n        uint256 amount;\\r\\n        uint256 lockDuration;\\r\\n        uint256 startTime;\\r\\n        uint256 blockNumber;\\r\\n        bool active;\\r\\n    }\\r\\n\\r\\n    mapping(address => uint256) public totalStakedGlobal;\\r\\n    mapping(address => Stake[]) public userStakes;\\r\\n\\r\\n    // Track message processing to prevent duplicates\\r\\n    mapping(bytes32 => bool) public processedMessages;\\r\\n\\r\\n    error MessageAlreadyProcessed();\\r\\n    error InvalidMessageType();\\r\\n    error InvalidUser();\\r\\n    error InsufficientStakedAmount();\\r\\n    error StakeIndexOutOfBounds();\\r\\n    error StakeNotActive();\\r\\n    error ZeroAmount();\\r\\n    error LockPeriodNotEnded();\\r\\n    error InvalidLockDuration();\\r\\n    error InvalidRepairAmount();\\r\\n    error RepairWouldCauseOverflow();\\r\\n\\r\\n    /**\\r\\n     * @dev Constructor initializes the contract with the endpoint and owner\\r\\n     * @param _endpoint Address of the LayerZero endpoint\\r\\n     * @param _owner Address of the contract owner\\r\\n     */\\r\\n    constructor(address _endpoint, address _owner) OApp(_endpoint, _owner) Ownable(_owner) {}\\r\\n\\r\\n    /**\\r\\n     * @dev LayerZero message handler using OApp pattern\\r\\n     * @param _origin Origin information of the message\\r\\n     * @param _guid Unique identifier of the message\\r\\n     * @param payload Encoded message payload\\r\\n     */\\r\\n    function _lzReceive(\\r\\n        Origin calldata _origin,\\r\\n        bytes32 _guid,\\r\\n        bytes calldata payload,\\r\\n        address /*executor*/,\\r\\n        bytes calldata /*extraData*/\\r\\n    ) internal override nonReentrant {\\r\\n        // Prevent duplicate message processing\\r\\n        if (processedMessages[_guid]) revert MessageAlreadyProcessed();\\r\\n        processedMessages[_guid] = true;\\r\\n\\r\\n        // Decode the full payload with all 4 parameters\\r\\n        (uint8 msgType, address user, uint256 amount, uint256 lockDuration) = abi.decode(\\r\\n            payload,\\r\\n            (uint8, address, uint256, uint256)\\r\\n        );\\r\\n\\r\\n        // Validate user address\\r\\n        if (user == address(0)) revert InvalidUser();\\r\\n\\r\\n        if (msgType == STAKE_MSG_TYPE) {\\r\\n            _handleStake(user, amount, lockDuration, _origin.srcEid);\\r\\n        } else if (msgType == UNSTAKE_MSG_TYPE) {\\r\\n            uint256 stakeIndex = amount;\\r\\n            _handleUnstake(user, stakeIndex, _origin.srcEid);\\r\\n        } else {\\r\\n            emit InvalidMessageReceived(msgType, _guid);\\r\\n            revert InvalidMessageType();\\r\\n        }\\r\\n\\r\\n        emit MessageProcessed(msgType, user, _guid);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Handles a stake payload from TokenStaking\\r\\n     * @param user Address of the user\\r\\n     * @param amount Amount of tokens staked\\r\\n     * @param lockDuration Duration of the lock period\\r\\n     * @param srcEid Source endpoint ID\\r\\n     */\\r\\n    function _handleStake(address user, uint256 amount, uint256 lockDuration, uint32 srcEid) internal {\\r\\n        // Validate amount\\r\\n        if (amount == 0) revert ZeroAmount();\\r\\n\\r\\n        // Validate lock duration bounds: 1 day \\u2264 lockDuration \\u2264 2 years\\r\\n        // This prevents extremely large durations or zero values from misconfigured or compromised senders\\r\\n        if (lockDuration < MIN_LOCK_DURATION || lockDuration > MAX_LOCK_DURATION) {\\r\\n            revert InvalidLockDuration();\\r\\n        }\\r\\n\\r\\n        // Validate lock duration matches allowed durations (3 or 6 months only)\\r\\n        if (lockDuration != THREE_MONTHS_DURATION && lockDuration != SIX_MONTHS_DURATION) {\\r\\n            revert InvalidLockDuration();\\r\\n        }\\r\\n\\r\\n        uint256 stakeIndex = userStakes[user].length;\\r\\n\\r\\n        // Update global staking state\\r\\n        totalStakedGlobal[user] += amount;\\r\\n        userStakes[user].push(\\r\\n            Stake({\\r\\n                amount: amount,\\r\\n                lockDuration: lockDuration,\\r\\n                startTime: block.timestamp,\\r\\n                blockNumber: block.number,\\r\\n                active: true\\r\\n            })\\r\\n        );\\r\\n\\r\\n        emit StakeReceived(user, amount, lockDuration, stakeIndex, block.number, srcEid);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Handles an unstake payload from TokenStaking\\r\\n     * @param user Address of the user\\r\\n     * @param stakeIndex Index of the stake to unstake\\r\\n     * @param srcEid Source endpoint ID\\r\\n     */\\r\\n    function _handleUnstake(address user, uint256 stakeIndex, uint32 srcEid) internal {\\r\\n        // Validate stake index\\r\\n        if (stakeIndex >= userStakes[user].length) revert StakeIndexOutOfBounds();\\r\\n\\r\\n        Stake storage stake = userStakes[user][stakeIndex];\\r\\n        if (!stake.active) revert StakeNotActive();\\r\\n\\r\\n        if (block.timestamp < stake.startTime + stake.lockDuration) revert LockPeriodNotEnded();\\r\\n\\r\\n        uint256 amount = stake.amount;\\r\\n\\r\\n        // Validate amount\\r\\n        if (amount == 0) revert ZeroAmount();\\r\\n\\r\\n        // Reduce the total staked amount\\r\\n        if (totalStakedGlobal[user] < amount) revert InsufficientStakedAmount();\\r\\n        totalStakedGlobal[user] -= amount;\\r\\n\\r\\n        // Mark stake as inactive\\r\\n        stake.active = false;\\r\\n\\r\\n        emit UnstakeReceived(user, stakeIndex, block.number, srcEid);\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Gets all stakes for a user\\r\\n     * @param user Address of the user\\r\\n     * @return Array of user's stakes\\r\\n     */\\r\\n    function getUserStakes(address user) external view returns (Stake[] memory) {\\r\\n        return userStakes[user];\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev Gets the total amount staked by a user\\r\\n     * @param user Address of the user\\r\\n     * @return Total staked amount\\r\\n     */\\r\\n    function getTotalStakedGlobal(address user) external view returns (uint256) {\\r\\n        return totalStakedGlobal[user];\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @dev ADMIN REPAIR FUNCTION - Use with extreme caution\\r\\n     * @dev Allows owner to repair corrupted stake state after validation\\r\\n     * @dev Only use for correcting clear mistakes (e.g., bad LayerZero message)\\r\\n     * @param user Address of the user whose stake needs repair\\r\\n     * @param stakeIndex Index of the stake to repair\\r\\n     * @param correctedAmount Corrected amount for the stake\\r\\n     * @param reason Reason for the repair (max 256 characters)\\r\\n     * @notice This function should be used sparingly and only by trusted admins\\r\\n     * @notice All repairs are permanently logged via events for audit trail\\r\\n     */\\r\\n    function repairUserStake(\\r\\n        address user,\\r\\n        uint256 stakeIndex,\\r\\n        uint256 correctedAmount,\\r\\n        string memory reason\\r\\n    ) external onlyOwner {\\r\\n        // Validate inputs\\r\\n        if (user == address(0)) revert InvalidUser();\\r\\n        if (stakeIndex >= userStakes[user].length) revert StakeIndexOutOfBounds();\\r\\n        if (correctedAmount == 0) revert InvalidRepairAmount();\\r\\n\\r\\n        // Reason should be provided for audit trail (max 256 chars for gas efficiency)\\r\\n        require(bytes(reason).length > 0 && bytes(reason).length <= 256, \\\"Invalid reason\\\");\\r\\n\\r\\n        Stake storage stake = userStakes[user][stakeIndex];\\r\\n        uint256 oldAmount = stake.amount;\\r\\n\\r\\n        // Calculate the difference\\r\\n        uint256 difference;\\r\\n        if (correctedAmount > oldAmount) {\\r\\n            difference = correctedAmount - oldAmount;\\r\\n            // Check for overflow when adding to global total\\r\\n            if (totalStakedGlobal[user] + difference < totalStakedGlobal[user]) revert RepairWouldCauseOverflow();\\r\\n            totalStakedGlobal[user] += difference;\\r\\n        } else if (correctedAmount < oldAmount) {\\r\\n            difference = oldAmount - correctedAmount;\\r\\n            // Ensure we don't underflow\\r\\n            if (totalStakedGlobal[user] < difference) revert InsufficientStakedAmount();\\r\\n            totalStakedGlobal[user] -= difference;\\r\\n        }\\r\\n        // If correctedAmount == oldAmount, no change needed (validated as a no-op)\\r\\n\\r\\n        // Update the stake with corrected amount\\r\\n        stake.amount = correctedAmount;\\r\\n\\r\\n        // Emit repair event for audit trail\\r\\n        emit StakeRepaired(user, stakeIndex, oldAmount, correctedAmount, reason);\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0xd3be9a6f3a7e1a184eb10d391119c016d37acc239745ac71b493dd7d33638036\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60a034620001635762001c5d906001600160401b03601f38849003908101601f1916830190828211848310176200016857808491604096879485528339810103126200016357602062000052836200017e565b926001600160a01b039182916200006a91016200017e565b169081156200014b57600080546001600160a01b0319811684178255909490839083167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08780a3169081608052813b156200014757839291602484928751968793849263ca5eb5e160e01b845260048401525af180156200013d5762000116575b83600160035551611ac99081620001948239608051818181610279015281816106680152610f2e0152f35b82116200012957508152388080620000eb565b634e487b7160e01b81526041600452602490fd5b84513d84823e3d90fd5b8380fd5b8451631e4fbdf760e01b815260006004820152602490fd5b600080fd5b634e487b7160e01b600052604160045260246000fd5b51906001600160a01b0382168203620001635756fe6080604052600436101561001257600080fd5b60003560e01c806313137d65146101c257806317442b70146101bd5780633400288b146101b85780634de1fb21146101b35780634f1bfc9e146101ae5780635535d461146101a95780635e280f11146101a45780636196a5061461019f578063715018a61461019a57806378655cff1461016d57806378b4330f146101955780637d25a05e14610190578063823869511461018b57806382413eac14610186578063842e29811461018157806388ba16ab1461017c5780638da5cb5b14610177578063abdf4b0e14610172578063b5d0881f1461016d578063b5d5b5fa14610168578063b98bd07014610163578063bb0b6a531461015e578063bc70b35414610159578063ca5eb5e114610154578063f2fde38b1461014f578063f948482f1461014a5763ff7bd03d1461014557600080fd5b61104b565b61102d565b610fa1565b610efd565b610ea9565b610e6e565b610d5c565b610cce565b6109f6565b610c79565b610c50565b610c1f565b610b5d565b610a94565b610a78565b610a51565b610a33565b610998565b6106ea565b610652565b6105e0565b6103f5565b6103d9565b610352565b610322565b61021b565b60609060031901126101d857600490565b600080fd5b9181601f840112156101d8578235916001600160401b0383116101d857602083818601950101116101d857565b6001600160a01b038116036101d857565b60e03660031901126101d857610230366101c7565b6001600160401b036084358181116101d8576102509036906004016101dd565b9161025c60a43561020a565b60c4359081116101d8576102749036906004016101dd565b5050337f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03160361030a576102b76102b284611091565b61124e565b9260208101358094036102d4576102d2935060643590611286565b005b6102de8491611091565b60405163309afaf360e21b815263ffffffff9190911660048201526024810191909152604490fd5b0390fd5b6040516391ac5e4f60e01b8152336004820152602490fd5b346101d85760003660031901126101d857604080516001815260026020820152f35b63ffffffff8116036101d857565b346101d85760403660031901126101d8577f238399d427b947898edb290f5ff0f9109849b1c3ba196a42e35f00c50a54b98b60043561039081610344565b6024359061039c61145b565b63ffffffff81166000526001602052816040600020556103d4604051928392836020909392919363ffffffff60408201951681520152565b0390a1005b346101d85760003660031901126101d857602060405160028152f35b346101d85760003660031901126101d85760206040516303c267008152f35b6024359061ffff821682036101d857565b359061ffff821682036101d857565b90600182811c92168015610464575b602083101461044e57565b634e487b7160e01b600052602260045260246000fd5b91607f1691610443565b634e487b7160e01b600052604160045260246000fd5b60a081019081106001600160401b0382111761049f57604052565b61046e565b6001600160401b03811161049f57604052565b606081019081106001600160401b0382111761049f57604052565b90601f801991011681019081106001600160401b0382111761049f57604052565b9060405191826000825461050681610434565b908184526020946001916001811690816000146105765750600114610537575b505050610535925003836104d2565b565b600090815285812095935091905b81831061055e5750506105359350820101388080610526565b85548884018501529485019487945091830191610545565b9250505061053594925060ff191682840152151560051b820101388080610526565b60005b8381106105ab5750506000910152565b818101518382015260200161059b565b906020916105d481518092818552858086019101610598565b601f01601f1916010190565b346101d85760403660031901126101d85761064e61063a61063560043561060681610344565b63ffffffff610613610414565b9116600052600260205260406000209061ffff16600052602052604060002090565b6104f3565b6040519182916020835260208301906105bb565b0390f35b346101d85760003660031901126101d8576040517f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03168152602090f35b6040519061053582610484565b9291926001600160401b03821161049f57604051916106cd601f8201601f1916602001846104d2565b8294818452818301116101d8578281602093846000960137010152565b346101d85760803660031901126101d85760048035906107098261020a565b604435916024356064356001600160401b0381116101d857366023820112156101d85761073f90369060248187013591016106a4565b9361074861145b565b6001600160a01b038316938415610989576001600160a01b03841660009081526005602052604090205483101561097a57811561096b576107948651801515908161095e575b5061109e565b6001600160a01b03841660009081526005602052604090206107b7908490610cad565b509081549485841160001461088b576107d086856110f1565b916107f7836107f18460018060a01b03166000526004602052604060002090565b54611103565b6001600160a01b0383166000908152600460205260409020541161087c5750927f6c6570cd9356edd0743f5bacb76fef980614aafdc0879143ab9dbb2678b04ed4969792819261086761085f6108779760018060a01b03166000526004602052604060002090565b918254611103565b90555b5560405194859485611110565b0390a2005b60405163e8ee5d4d60e01b8152fd5b8584106108c3575b50509481610877927f6c6570cd9356edd0743f5bacb76fef980614aafdc0879143ab9dbb2678b04ed4969761086a565b6108cd84876110f1565b91826108eb8360018060a01b03166000526004602052604060002090565b541061094f5750927f6c6570cd9356edd0743f5bacb76fef980614aafdc0879143ab9dbb2678b04ed4969792819261094361093b6108779760018060a01b03166000526004602052604060002090565b9182546110f1565b90559297965092610893565b604051636837fc4760e11b8152fd5b610100915011153861078e565b604051630b155ba760e31b8152fd5b6040516322cfe46960e11b8152fd5b60405163fd684c3b60e01b8152fd5b346101d8576000806003193601126109f3576109b261145b565b80546001600160a01b03198116825581906001600160a01b03167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08280a380f35b80fd5b346101d85760203660031901126101d857600435610a138161020a565b60018060a01b031660005260046020526020604060002054604051908152f35b346101d85760003660031901126101d8576020604051620151808152f35b346101d85760403660031901126101d857610a6d600435610344565b602060405160008152f35b346101d85760003660031901126101d857602060405160018152f35b346101d85760a03660031901126101d857610aae366101c7565b506064356001600160401b0381116101d857610ace9036906004016101dd565b50506020608435610ade8161020a565b6040516001600160a01b0390911630148152f35b60208082019080835283518092528060408094019401926000905b838210610b1c57505050505090565b845180518752808401518785015280820151878301526060808201519088015260809081015115159087015260a09095019493820193600190910190610b0d565b346101d8576020806003193601126101d85760048035610b7c8161020a565b60018060a01b03166000526005808352604092604060002090815493610ba185611133565b95610baf60405197886104d2565b8587526000938452828420918388015b878610610bd4576040518061064e8b82610af2565b86856001928551610be481610484565b8754815284880154838201526002880154878201526003880154606082015260ff868901541615156080820152815201940195019492610bbf565b346101d85760203660031901126101d8576004356000526006602052602060ff604060002054166040519015158152f35b346101d85760003660031901126101d8576000546040516001600160a01b039091168152602090f35b346101d85760003660031901126101d857602060405162ed4e008152f35b634e487b7160e01b600052603260045260246000fd5b8054821015610cc9576000526005602060002091020190600090565b610c97565b346101d85760403660031901126101d857600435610ceb8161020a565b6001600160a01b031660009081526005602052604090208054602435908110156101d857610d1891610cad565b50805460018201546002830154600384015460049094015460408051948552602085019390935291830152606082019290925260ff9091161515608082015260a090f35b346101d8576020806003193601126101d8576004356001600160401b038082116101d857366023830112156101d8578160040135918183116101d85760249060248460051b820101923684116101d857610db461145b565b610dbd85611133565b94604090610dce60405197886104d2565b86526024830192602087015b868510610dea576102d288611651565b84358481116101d8578201606060231982360301126101d857835191610e0f836104b7565b87820135610e1c81610344565b8352604491610e2c838201610425565b8c8501526064810135908782116101d8570192366043850112156101d857610e5f8c9493859436918c82013591016106a4565b86820152815201940193610dda565b346101d85760203660031901126101d85763ffffffff600435610e9081610344565b1660005260016020526020604060002054604051908152f35b346101d85760603660031901126101d857600435610ec681610344565b610ece610414565b604435906001600160401b0382116101d85761064e92610ef561063a9336906004016101dd565b9290916111ae565b346101d857600060203660031901126109f357600435610f1c8161020a565b610f2461145b565b6001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000811691839190833b15610f9d5760249083604051958694859363ca5eb5e160e01b85521660048401525af18015610f9257610f86575080f35b610f8f906104a4565b80f35b6040513d84823e3d90fd5b8280fd5b346101d85760203660031901126101d857600435610fbe8161020a565b610fc661145b565b6001600160a01b03908116801561101457600080546001600160a01b03198116831782559092167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08380a380f35b604051631e4fbdf760e01b815260006004820152602490fd5b346101d85760003660031901126101d85760206040516276a7008152f35b346101d85760603660031901126101d8576020611067366101c7565b63ffffffff813561107781610344565b166000526001825260406000205482604051920135148152f35b3561109b81610344565b90565b156110a557565b60405162461bcd60e51b815260206004820152600e60248201526d24b73b30b634b2103932b0b9b7b760911b6044820152606490fd5b634e487b7160e01b600052601160045260246000fd5b919082039182116110fe57565b6110db565b919082018092116110fe57565b909260809261109b959483526020830152604082015281606082015201906105bb565b6001600160401b03811161049f5760051b60200190565b6020908361053593959495604051968361116d8995518092888089019101610598565b84019185830137016000838201520380855201836104d2565b90918060409360208452816020850152848401376000828201840152601f01601f1916010190565b6111dc9163ffffffff6106359216600052600260205260406000209061ffff16600052602052604060002090565b80511561124257821561123c57600283101561120f5750610306604051928392639a6d49cd60e01b845260048401611186565b61122261121d3685856106a4565b611717565b826002116101d85761109b9260011901916002019061114a565b91505090565b5061109b9136916106a4565b63ffffffff1680600052600160205260406000205490811561126e575090565b6024906040519063f6ff4fb760e01b82526004820152fd5b9290916002600354146114145760026003556112b66112af846000526006602052604060002090565b5460ff1690565b611402576112ea916112e26112d5856000526006602052604060002090565b805460ff19166001179055565b810190611426565b6001600160a01b039092169490919085156113f05760ff8416600181036113635750916113449161133d7f6a9cbe49633a7dc063e43c067fb0e01f3fc7923df860424a9a8060479ab14c04969594611091565b918761194c565b6040805160ff9290921682526020820192909252a26105356001600355565b9091506002036113a9577f6a9cbe49633a7dc063e43c067fb0e01f3fc7923df860424a9a8060479ab14c0493929161139d6113a492611091565b908661174f565b611344565b6040805160ff85168152602081018690527f4ee080d2756127ca8f90bd4e89a5e0edd7c5e3a9ec2a07e9a8c18e81585865ac9190a1604051635b60892f60e01b8152600490fd5b60405163fd684c3b60e01b8152600490fd5b604051637b04260960e01b8152600490fd5b604051633ee5aeb560e01b8152600490fd5b91908260809103126101d857813560ff811681036101d85791602081013561144d8161020a565b916060604083013592013590565b6000546001600160a01b0316330361146f57565b60405163118cdaa760e01b8152336004820152602490fd5b8051821015610cc95760209160051b010190565b90601f81116114a957505050565b6000916000526020600020906020601f850160051c830194106114e7575b601f0160051c01915b8281106114dc57505050565b8181556001016114d0565b90925082906114c7565b91909182516001600160401b03811161049f57611518816115128454610434565b8461149b565b602080601f831160011461155b5750819061154c939495600092611550575b50508160011b916000199060031b1c19161790565b9055565b015190503880611537565b90601f1983169561157185600052602060002090565b926000905b8882106115ae57505083600195969710611595575b505050811b019055565b015160001960f88460031b161c1916905538808061158b565b80600185968294968601518155019501930190611576565b6020808201908083528351809252604092604081018260408560051b8401019601946000925b8584106115fd575050505050505090565b909192939495968580611640600193603f198682030188528b518760609163ffffffff815116845261ffff868201511686850152015191818982015201906105bb565b9901940194019295949391906115ec565b9060009160005b81518110156116dd576001906116d7604061167f816116778588611487565b510151611717565b6116d28161168d8588611487565b5101519163ffffffff6116a08689611487565b515116895261ffff602091600283528a20916116bc878a611487565b5101511661ffff16600052602052604060002090565b6114f1565b01611658565b507fbe4864a8e820971c0247f5992e2da559595f7bf076a21cb5928d443d2a13b67491925061171290604051918291826115c6565b0390a1565b600361ffff6002830151160361172a5750565b604051639a6d49cd60e01b8152602060048201529081906103069060248301906105bb565b6001600160a01b038116600090815260056020526040902091929091548310156118bd576001600160a01b0382166000908152600560205260409020611796908490610cad565b509160048301926117af6117ab855460ff1690565b1590565b6118ab576117c66002820154600183015490611103565b421061189957548015611887576001600160a01b038216600090815260046020526040902081905410611875577ff8ccc39635c002751dc4e45c2829438bd191c1d20b2fcbc5b4bb3995b7feeaa1936118449161183861093b8560018060a01b03166000526004602052604060002090565b9055805460ff19169055565b6040805194855243602086015263ffffffff909216918401919091526001600160a01b03169180606081015b0390a2565b604051636837fc4760e11b8152600490fd5b604051631f2a200560e01b8152600490fd5b6040516387c0f2d560e01b8152600490fd5b60405163586ea33760e11b8152600490fd5b6040516322cfe46960e11b8152600490fd5b80546801000000000000000081101561049f576118f191600182018155610cad565b611936576004608083610535945184556020810151600185015560408101516002850155606081015160038501550151151591019060ff801983541691151516179055565b634e487b7160e01b600052600060045260246000fd5b9291928115611887576201518084108015611a86575b611a67576276a70084141580611a79575b611a67576001600160a01b03811660009081526005602052604090207fe6eb20c1dfb40457602b55e8dc87d93d21d4e00d5f4051ed623412778e5b37d29361187091546001600160a01b03841660009081526004602052604090209094906119dc828254611103565b90556001600160a01b0384166000908152600560205260409020611a2a90611a02610697565b90838252896020830152426040830152436060830152611a256080830160019052565b6118cf565b6040805191825260208201979097529586019390935243606086015263ffffffff90921660808501526001600160a01b03169290819060a0820190565b604051630f962f3d60e31b8152600490fd5b5062ed4e00841415611973565b506303c26700841161196256fea2646970667358221220f7ce7b3f5a00f9d8359df14637a103d407195872fadf893b318414f7b4dce2a364736f6c63430008160033",
+  "deployedBytecode": "0x6080604052600436101561001257600080fd5b60003560e01c806313137d65146101c257806317442b70146101bd5780633400288b146101b85780634de1fb21146101b35780634f1bfc9e146101ae5780635535d461146101a95780635e280f11146101a45780636196a5061461019f578063715018a61461019a57806378655cff1461016d57806378b4330f146101955780637d25a05e14610190578063823869511461018b57806382413eac14610186578063842e29811461018157806388ba16ab1461017c5780638da5cb5b14610177578063abdf4b0e14610172578063b5d0881f1461016d578063b5d5b5fa14610168578063b98bd07014610163578063bb0b6a531461015e578063bc70b35414610159578063ca5eb5e114610154578063f2fde38b1461014f578063f948482f1461014a5763ff7bd03d1461014557600080fd5b61104b565b61102d565b610fa1565b610efd565b610ea9565b610e6e565b610d5c565b610cce565b6109f6565b610c79565b610c50565b610c1f565b610b5d565b610a94565b610a78565b610a51565b610a33565b610998565b6106ea565b610652565b6105e0565b6103f5565b6103d9565b610352565b610322565b61021b565b60609060031901126101d857600490565b600080fd5b9181601f840112156101d8578235916001600160401b0383116101d857602083818601950101116101d857565b6001600160a01b038116036101d857565b60e03660031901126101d857610230366101c7565b6001600160401b036084358181116101d8576102509036906004016101dd565b9161025c60a43561020a565b60c4359081116101d8576102749036906004016101dd565b5050337f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03160361030a576102b76102b284611091565b61124e565b9260208101358094036102d4576102d2935060643590611286565b005b6102de8491611091565b60405163309afaf360e21b815263ffffffff9190911660048201526024810191909152604490fd5b0390fd5b6040516391ac5e4f60e01b8152336004820152602490fd5b346101d85760003660031901126101d857604080516001815260026020820152f35b63ffffffff8116036101d857565b346101d85760403660031901126101d8577f238399d427b947898edb290f5ff0f9109849b1c3ba196a42e35f00c50a54b98b60043561039081610344565b6024359061039c61145b565b63ffffffff81166000526001602052816040600020556103d4604051928392836020909392919363ffffffff60408201951681520152565b0390a1005b346101d85760003660031901126101d857602060405160028152f35b346101d85760003660031901126101d85760206040516303c267008152f35b6024359061ffff821682036101d857565b359061ffff821682036101d857565b90600182811c92168015610464575b602083101461044e57565b634e487b7160e01b600052602260045260246000fd5b91607f1691610443565b634e487b7160e01b600052604160045260246000fd5b60a081019081106001600160401b0382111761049f57604052565b61046e565b6001600160401b03811161049f57604052565b606081019081106001600160401b0382111761049f57604052565b90601f801991011681019081106001600160401b0382111761049f57604052565b9060405191826000825461050681610434565b908184526020946001916001811690816000146105765750600114610537575b505050610535925003836104d2565b565b600090815285812095935091905b81831061055e5750506105359350820101388080610526565b85548884018501529485019487945091830191610545565b9250505061053594925060ff191682840152151560051b820101388080610526565b60005b8381106105ab5750506000910152565b818101518382015260200161059b565b906020916105d481518092818552858086019101610598565b601f01601f1916010190565b346101d85760403660031901126101d85761064e61063a61063560043561060681610344565b63ffffffff610613610414565b9116600052600260205260406000209061ffff16600052602052604060002090565b6104f3565b6040519182916020835260208301906105bb565b0390f35b346101d85760003660031901126101d8576040517f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03168152602090f35b6040519061053582610484565b9291926001600160401b03821161049f57604051916106cd601f8201601f1916602001846104d2565b8294818452818301116101d8578281602093846000960137010152565b346101d85760803660031901126101d85760048035906107098261020a565b604435916024356064356001600160401b0381116101d857366023820112156101d85761073f90369060248187013591016106a4565b9361074861145b565b6001600160a01b038316938415610989576001600160a01b03841660009081526005602052604090205483101561097a57811561096b576107948651801515908161095e575b5061109e565b6001600160a01b03841660009081526005602052604090206107b7908490610cad565b509081549485841160001461088b576107d086856110f1565b916107f7836107f18460018060a01b03166000526004602052604060002090565b54611103565b6001600160a01b0383166000908152600460205260409020541161087c5750927f6c6570cd9356edd0743f5bacb76fef980614aafdc0879143ab9dbb2678b04ed4969792819261086761085f6108779760018060a01b03166000526004602052604060002090565b918254611103565b90555b5560405194859485611110565b0390a2005b60405163e8ee5d4d60e01b8152fd5b8584106108c3575b50509481610877927f6c6570cd9356edd0743f5bacb76fef980614aafdc0879143ab9dbb2678b04ed4969761086a565b6108cd84876110f1565b91826108eb8360018060a01b03166000526004602052604060002090565b541061094f5750927f6c6570cd9356edd0743f5bacb76fef980614aafdc0879143ab9dbb2678b04ed4969792819261094361093b6108779760018060a01b03166000526004602052604060002090565b9182546110f1565b90559297965092610893565b604051636837fc4760e11b8152fd5b610100915011153861078e565b604051630b155ba760e31b8152fd5b6040516322cfe46960e11b8152fd5b60405163fd684c3b60e01b8152fd5b346101d8576000806003193601126109f3576109b261145b565b80546001600160a01b03198116825581906001600160a01b03167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08280a380f35b80fd5b346101d85760203660031901126101d857600435610a138161020a565b60018060a01b031660005260046020526020604060002054604051908152f35b346101d85760003660031901126101d8576020604051620151808152f35b346101d85760403660031901126101d857610a6d600435610344565b602060405160008152f35b346101d85760003660031901126101d857602060405160018152f35b346101d85760a03660031901126101d857610aae366101c7565b506064356001600160401b0381116101d857610ace9036906004016101dd565b50506020608435610ade8161020a565b6040516001600160a01b0390911630148152f35b60208082019080835283518092528060408094019401926000905b838210610b1c57505050505090565b845180518752808401518785015280820151878301526060808201519088015260809081015115159087015260a09095019493820193600190910190610b0d565b346101d8576020806003193601126101d85760048035610b7c8161020a565b60018060a01b03166000526005808352604092604060002090815493610ba185611133565b95610baf60405197886104d2565b8587526000938452828420918388015b878610610bd4576040518061064e8b82610af2565b86856001928551610be481610484565b8754815284880154838201526002880154878201526003880154606082015260ff868901541615156080820152815201940195019492610bbf565b346101d85760203660031901126101d8576004356000526006602052602060ff604060002054166040519015158152f35b346101d85760003660031901126101d8576000546040516001600160a01b039091168152602090f35b346101d85760003660031901126101d857602060405162ed4e008152f35b634e487b7160e01b600052603260045260246000fd5b8054821015610cc9576000526005602060002091020190600090565b610c97565b346101d85760403660031901126101d857600435610ceb8161020a565b6001600160a01b031660009081526005602052604090208054602435908110156101d857610d1891610cad565b50805460018201546002830154600384015460049094015460408051948552602085019390935291830152606082019290925260ff9091161515608082015260a090f35b346101d8576020806003193601126101d8576004356001600160401b038082116101d857366023830112156101d8578160040135918183116101d85760249060248460051b820101923684116101d857610db461145b565b610dbd85611133565b94604090610dce60405197886104d2565b86526024830192602087015b868510610dea576102d288611651565b84358481116101d8578201606060231982360301126101d857835191610e0f836104b7565b87820135610e1c81610344565b8352604491610e2c838201610425565b8c8501526064810135908782116101d8570192366043850112156101d857610e5f8c9493859436918c82013591016106a4565b86820152815201940193610dda565b346101d85760203660031901126101d85763ffffffff600435610e9081610344565b1660005260016020526020604060002054604051908152f35b346101d85760603660031901126101d857600435610ec681610344565b610ece610414565b604435906001600160401b0382116101d85761064e92610ef561063a9336906004016101dd565b9290916111ae565b346101d857600060203660031901126109f357600435610f1c8161020a565b610f2461145b565b6001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000811691839190833b15610f9d5760249083604051958694859363ca5eb5e160e01b85521660048401525af18015610f9257610f86575080f35b610f8f906104a4565b80f35b6040513d84823e3d90fd5b8280fd5b346101d85760203660031901126101d857600435610fbe8161020a565b610fc661145b565b6001600160a01b03908116801561101457600080546001600160a01b03198116831782559092167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08380a380f35b604051631e4fbdf760e01b815260006004820152602490fd5b346101d85760003660031901126101d85760206040516276a7008152f35b346101d85760603660031901126101d8576020611067366101c7565b63ffffffff813561107781610344565b166000526001825260406000205482604051920135148152f35b3561109b81610344565b90565b156110a557565b60405162461bcd60e51b815260206004820152600e60248201526d24b73b30b634b2103932b0b9b7b760911b6044820152606490fd5b634e487b7160e01b600052601160045260246000fd5b919082039182116110fe57565b6110db565b919082018092116110fe57565b909260809261109b959483526020830152604082015281606082015201906105bb565b6001600160401b03811161049f5760051b60200190565b6020908361053593959495604051968361116d8995518092888089019101610598565b84019185830137016000838201520380855201836104d2565b90918060409360208452816020850152848401376000828201840152601f01601f1916010190565b6111dc9163ffffffff6106359216600052600260205260406000209061ffff16600052602052604060002090565b80511561124257821561123c57600283101561120f5750610306604051928392639a6d49cd60e01b845260048401611186565b61122261121d3685856106a4565b611717565b826002116101d85761109b9260011901916002019061114a565b91505090565b5061109b9136916106a4565b63ffffffff1680600052600160205260406000205490811561126e575090565b6024906040519063f6ff4fb760e01b82526004820152fd5b9290916002600354146114145760026003556112b66112af846000526006602052604060002090565b5460ff1690565b611402576112ea916112e26112d5856000526006602052604060002090565b805460ff19166001179055565b810190611426565b6001600160a01b039092169490919085156113f05760ff8416600181036113635750916113449161133d7f6a9cbe49633a7dc063e43c067fb0e01f3fc7923df860424a9a8060479ab14c04969594611091565b918761194c565b6040805160ff9290921682526020820192909252a26105356001600355565b9091506002036113a9577f6a9cbe49633a7dc063e43c067fb0e01f3fc7923df860424a9a8060479ab14c0493929161139d6113a492611091565b908661174f565b611344565b6040805160ff85168152602081018690527f4ee080d2756127ca8f90bd4e89a5e0edd7c5e3a9ec2a07e9a8c18e81585865ac9190a1604051635b60892f60e01b8152600490fd5b60405163fd684c3b60e01b8152600490fd5b604051637b04260960e01b8152600490fd5b604051633ee5aeb560e01b8152600490fd5b91908260809103126101d857813560ff811681036101d85791602081013561144d8161020a565b916060604083013592013590565b6000546001600160a01b0316330361146f57565b60405163118cdaa760e01b8152336004820152602490fd5b8051821015610cc95760209160051b010190565b90601f81116114a957505050565b6000916000526020600020906020601f850160051c830194106114e7575b601f0160051c01915b8281106114dc57505050565b8181556001016114d0565b90925082906114c7565b91909182516001600160401b03811161049f57611518816115128454610434565b8461149b565b602080601f831160011461155b5750819061154c939495600092611550575b50508160011b916000199060031b1c19161790565b9055565b015190503880611537565b90601f1983169561157185600052602060002090565b926000905b8882106115ae57505083600195969710611595575b505050811b019055565b015160001960f88460031b161c1916905538808061158b565b80600185968294968601518155019501930190611576565b6020808201908083528351809252604092604081018260408560051b8401019601946000925b8584106115fd575050505050505090565b909192939495968580611640600193603f198682030188528b518760609163ffffffff815116845261ffff868201511686850152015191818982015201906105bb565b9901940194019295949391906115ec565b9060009160005b81518110156116dd576001906116d7604061167f816116778588611487565b510151611717565b6116d28161168d8588611487565b5101519163ffffffff6116a08689611487565b515116895261ffff602091600283528a20916116bc878a611487565b5101511661ffff16600052602052604060002090565b6114f1565b01611658565b507fbe4864a8e820971c0247f5992e2da559595f7bf076a21cb5928d443d2a13b67491925061171290604051918291826115c6565b0390a1565b600361ffff6002830151160361172a5750565b604051639a6d49cd60e01b8152602060048201529081906103069060248301906105bb565b6001600160a01b038116600090815260056020526040902091929091548310156118bd576001600160a01b0382166000908152600560205260409020611796908490610cad565b509160048301926117af6117ab855460ff1690565b1590565b6118ab576117c66002820154600183015490611103565b421061189957548015611887576001600160a01b038216600090815260046020526040902081905410611875577ff8ccc39635c002751dc4e45c2829438bd191c1d20b2fcbc5b4bb3995b7feeaa1936118449161183861093b8560018060a01b03166000526004602052604060002090565b9055805460ff19169055565b6040805194855243602086015263ffffffff909216918401919091526001600160a01b03169180606081015b0390a2565b604051636837fc4760e11b8152600490fd5b604051631f2a200560e01b8152600490fd5b6040516387c0f2d560e01b8152600490fd5b60405163586ea33760e11b8152600490fd5b6040516322cfe46960e11b8152600490fd5b80546801000000000000000081101561049f576118f191600182018155610cad565b611936576004608083610535945184556020810151600185015560408101516002850155606081015160038501550151151591019060ff801983541691151516179055565b634e487b7160e01b600052600060045260246000fd5b9291928115611887576201518084108015611a86575b611a67576276a70084141580611a79575b611a67576001600160a01b03811660009081526005602052604090207fe6eb20c1dfb40457602b55e8dc87d93d21d4e00d5f4051ed623412778e5b37d29361187091546001600160a01b03841660009081526004602052604090209094906119dc828254611103565b90556001600160a01b0384166000908152600560205260409020611a2a90611a02610697565b90838252896020830152426040830152436060830152611a256080830160019052565b6118cf565b6040805191825260208201979097529586019390935243606086015263ffffffff90921660808501526001600160a01b03169290819060a0820190565b604051630f962f3d60e31b8152600490fd5b5062ed4e00841415611973565b506303c26700841161196256fea2646970667358221220f7ce7b3f5a00f9d8359df14637a103d407195872fadf893b318414f7b4dce2a364736f6c63430008160033",
+  "devdoc": {
+    "details": "Contract for managing user staking state across chains using LayerZero",
+    "errors": {
+      "OwnableInvalidOwner(address)": [
+        {
+          "details": "The owner is not a valid owner account. (eg. `address(0)`)"
+        }
+      ],
+      "OwnableUnauthorizedAccount(address)": [
+        {
+          "details": "The caller account is not authorized to perform an operation."
+        }
+      ],
+      "ReentrancyGuardReentrantCall()": [
+        {
+          "details": "Unauthorized reentrant call."
+        }
+      ]
+    },
+    "kind": "dev",
+    "methods": {
+      "allowInitializePath((uint32,bytes32,uint64))": {
+        "details": "This indicates to the endpoint that the OApp has enabled msgs for this particular path to be received.This defaults to assuming if a peer has been set, its initialized. Can be overridden by the OApp if there is other logic to determine this.",
+        "params": {
+          "origin": "The origin information containing the source endpoint and sender address."
+        },
+        "returns": {
+          "_0": "Whether the path has been initialized."
+        }
+      },
+      "combineOptions(uint32,uint16,bytes)": {
+        "details": "If there is an enforced lzReceive option: - {gasLimit: 200k, msg.value: 1 ether} AND a caller supplies a lzReceive option: {gasLimit: 100k, msg.value: 0.5 ether} - The resulting options will be {gasLimit: 300k, msg.value: 1.5 ether} when the message is executed on the remote lzReceive() function.This presence of duplicated options is handled off-chain in the verifier/executor.",
+        "params": {
+          "_eid": "The endpoint ID.",
+          "_extraOptions": "Additional options passed by the caller.",
+          "_msgType": "The OAPP message type."
+        },
+        "returns": {
+          "_0": "options The combination of caller specified options AND enforced options."
+        }
+      },
+      "constructor": {
+        "details": "Constructor initializes the contract with the endpoint and owner",
+        "params": {
+          "_endpoint": "Address of the LayerZero endpoint",
+          "_owner": "Address of the contract owner"
+        }
+      },
+      "getTotalStakedGlobal(address)": {
+        "details": "Gets the total amount staked by a user",
+        "params": {
+          "user": "Address of the user"
+        },
+        "returns": {
+          "_0": "Total staked amount"
+        }
+      },
+      "getUserStakes(address)": {
+        "details": "Gets all stakes for a user",
+        "params": {
+          "user": "Address of the user"
+        },
+        "returns": {
+          "_0": "Array of user's stakes"
+        }
+      },
+      "isComposeMsgSender((uint32,bytes32,uint64),bytes,address)": {
+        "details": "_origin The origin information containing the source endpoint and sender address.  - srcEid: The source chain endpoint ID.  - sender: The sender address on the src chain.  - nonce: The nonce of the message._message The lzReceive payload.Applications can optionally choose to implement separate composeMsg senders that are NOT the bridging layer.The default sender IS the OAppReceiver implementer.",
+        "params": {
+          "_sender": "The sender address."
+        },
+        "returns": {
+          "_0": "isSender Is a valid sender."
+        }
+      },
+      "lzReceive((uint32,bytes32,uint64),bytes32,bytes,address,bytes)": {
+        "details": "Entry point for receiving messages or packets from the endpoint.Entry point for receiving msg/packet from the LayerZero endpoint.",
+        "params": {
+          "_executor": "The address of the executor for the received message.",
+          "_extraData": "Additional arbitrary data provided by the corresponding executor.",
+          "_guid": "The unique identifier for the received LayerZero message.",
+          "_message": "The payload of the received message.",
+          "_origin": "The origin information containing the source endpoint and sender address.  - srcEid: The source chain endpoint ID.  - sender: The sender address on the src chain.  - nonce: The nonce of the message."
+        }
+      },
+      "nextNonce(uint32,bytes32)": {
+        "details": "_srcEid The source endpoint ID._sender The sender address.The path nonce starts from 1. If 0 is returned it means that there is NO nonce ordered enforcement.Is required by the off-chain executor to determine the OApp expects msg execution is ordered.This is also enforced by the OApp.By default this is NOT enabled. ie. nextNonce is hardcoded to return 0.",
+        "returns": {
+          "nonce": "The next nonce."
+        }
+      },
+      "oAppVersion()": {
+        "returns": {
+          "receiverVersion": "The version of the OAppReceiver.sol implementation.",
+          "senderVersion": "The version of the OAppSender.sol implementation."
+        }
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+      },
+      "repairUserStake(address,uint256,uint256,string)": {
+        "details": "ADMIN REPAIR FUNCTION - Use with extreme cautionAllows owner to repair corrupted stake state after validationOnly use for correcting clear mistakes (e.g., bad LayerZero message)",
+        "params": {
+          "correctedAmount": "Corrected amount for the stake",
+          "reason": "Reason for the repair (max 256 characters)",
+          "stakeIndex": "Index of the stake to repair",
+          "user": "Address of the user whose stake needs repair"
+        }
+      },
+      "setDelegate(address)": {
+        "details": "Only the owner/admin of the OApp can call this function.Provides the ability for a delegate to set configs, on behalf of the OApp, directly on the Endpoint contract.",
+        "params": {
+          "_delegate": "The address of the delegate to be set."
+        }
+      },
+      "setEnforcedOptions((uint32,uint16,bytes)[])": {
+        "details": "Sets the enforced options for specific endpoint and message type combinations.Only the owner/admin of the OApp can call this function.Provides a way for the OApp to enforce things like paying for PreCrime, AND/OR minimum dst lzReceive gas amounts etc.These enforced options can vary as the potential options/execution on the remote may differ as per the msgType. eg. Amount of lzReceive() gas necessary to deliver a lzCompose() message adds overhead you dont want to pay if you are only making a standard LayerZero message ie. lzReceive() WITHOUT sendCompose().",
+        "params": {
+          "_enforcedOptions": "An array of EnforcedOptionParam structures specifying enforced options."
+        }
+      },
+      "setPeer(uint32,bytes32)": {
+        "details": "Only the owner/admin of the OApp can call this function.Indicates that the peer is trusted to send LayerZero messages to this OApp.Set this to bytes32(0) to remove the peer address.Peer is a bytes32 to accommodate non-evm chains.",
+        "params": {
+          "_eid": "The endpoint ID.",
+          "_peer": "The address of the peer to be associated with the corresponding endpoint."
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "title": "MetUserState",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "allowInitializePath((uint32,bytes32,uint64))": {
+        "notice": "Checks if the path initialization is allowed based on the provided origin."
+      },
+      "combineOptions(uint32,uint16,bytes)": {
+        "notice": "Combines options for a given endpoint and message type."
+      },
+      "endpoint()": {
+        "notice": "Retrieves the LayerZero endpoint associated with the OApp."
+      },
+      "isComposeMsgSender((uint32,bytes32,uint64),bytes,address)": {
+        "notice": "Indicates whether an address is an approved composeMsg sender to the Endpoint."
+      },
+      "nextNonce(uint32,bytes32)": {
+        "notice": "Retrieves the next nonce for a given source endpoint and sender address."
+      },
+      "oAppVersion()": {
+        "notice": "Retrieves the OApp version information."
+      },
+      "peers(uint32)": {
+        "notice": "Retrieves the peer (OApp) associated with a corresponding endpoint."
+      },
+      "repairUserStake(address,uint256,uint256,string)": {
+        "notice": "This function should be used sparingly and only by trusted adminsAll repairs are permanently logged via events for audit trail"
+      },
+      "setDelegate(address)": {
+        "notice": "Sets the delegate address for the OApp."
+      },
+      "setPeer(uint32,bytes32)": {
+        "notice": "Sets the peer address (OApp instance) for a corresponding endpoint."
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 1579,
+        "contract": "contracts/MetUserState.sol:MetUserState",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 831,
+        "contract": "contracts/MetUserState.sol:MetUserState",
+        "label": "peers",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_uint32,t_bytes32)"
+      },
+      {
+        "astId": 1427,
+        "contract": "contracts/MetUserState.sol:MetUserState",
+        "label": "enforcedOptions",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_uint32,t_mapping(t_uint16,t_bytes_storage))"
+      },
+      {
+        "astId": 3229,
+        "contract": "contracts/MetUserState.sol:MetUserState",
+        "label": "_status",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 8771,
+        "contract": "contracts/MetUserState.sol:MetUserState",
+        "label": "totalStakedGlobal",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 8777,
+        "contract": "contracts/MetUserState.sol:MetUserState",
+        "label": "userStakes",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_mapping(t_address,t_array(t_struct(Stake)8767_storage)dyn_storage)"
+      },
+      {
+        "astId": 8781,
+        "contract": "contracts/MetUserState.sol:MetUserState",
+        "label": "processedMessages",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_mapping(t_bytes32,t_bool)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_struct(Stake)8767_storage)dyn_storage": {
+        "base": "t_struct(Stake)8767_storage",
+        "encoding": "dynamic_array",
+        "label": "struct MetUserState.Stake[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_bytes_storage": {
+        "encoding": "bytes",
+        "label": "bytes",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_array(t_struct(Stake)8767_storage)dyn_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct MetUserState.Stake[])",
+        "numberOfBytes": "32",
+        "value": "t_array(t_struct(Stake)8767_storage)dyn_storage"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_bytes32,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_uint16,t_bytes_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint16",
+        "label": "mapping(uint16 => bytes)",
+        "numberOfBytes": "32",
+        "value": "t_bytes_storage"
+      },
+      "t_mapping(t_uint32,t_bytes32)": {
+        "encoding": "mapping",
+        "key": "t_uint32",
+        "label": "mapping(uint32 => bytes32)",
+        "numberOfBytes": "32",
+        "value": "t_bytes32"
+      },
+      "t_mapping(t_uint32,t_mapping(t_uint16,t_bytes_storage))": {
+        "encoding": "mapping",
+        "key": "t_uint32",
+        "label": "mapping(uint32 => mapping(uint16 => bytes))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_uint16,t_bytes_storage)"
+      },
+      "t_struct(Stake)8767_storage": {
+        "encoding": "inplace",
+        "label": "struct MetUserState.Stake",
+        "members": [
+          {
+            "astId": 8758,
+            "contract": "contracts/MetUserState.sol:MetUserState",
+            "label": "amount",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 8760,
+            "contract": "contracts/MetUserState.sol:MetUserState",
+            "label": "lockDuration",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 8762,
+            "contract": "contracts/MetUserState.sol:MetUserState",
+            "label": "startTime",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 8764,
+            "contract": "contracts/MetUserState.sol:MetUserState",
+            "label": "blockNumber",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 8766,
+            "contract": "contracts/MetUserState.sol:MetUserState",
+            "label": "active",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_bool"
+          }
+        ],
+        "numberOfBytes": "160"
+      },
+      "t_uint16": {
+        "encoding": "inplace",
+        "label": "uint16",
+        "numberOfBytes": "2"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint32": {
+        "encoding": "inplace",
+        "label": "uint32",
+        "numberOfBytes": "4"
+      }
+    }
+  }
+}

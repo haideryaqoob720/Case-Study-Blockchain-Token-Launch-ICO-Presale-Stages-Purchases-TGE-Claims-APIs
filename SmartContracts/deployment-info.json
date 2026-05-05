@@ -1,0 +1,46 @@
+{
+    "amoy": {
+        "USDTAddress": "0x13d570544bd23E023620200aB19053704361f9F4",
+        "USDCAddress": "0x15B05F46Ff6d623e8401CD8A9F5cf0bbb72b47d5",
+        "PaymentReceiverAddress": "0x76DF469183D2AE932eaF5C492E7F662DBA56b52e",
+        "TokenStakingAddress": "0x01A70b705A0D265fb4fFa72537BDF420b8bCc67c"
+    },
+    "bsctest": {
+        "USDTAddress": "0x77eF6dB25b2960CBD52773ba7e38128e20690eaf",
+        "USDCAddress": "0x67b15925Fd6bdE9e5782758702A6F8A7e1F18934",
+        "PaymentReceiverAddress": "0x3aF72Aca91726B9Ce6AC1A004363fb308991f764",
+        "TokenStakingAddress": "0xF5B2d158c8b741fcda028dF45C54D481F7724812"
+    },
+    "sepolia": {
+        "MetAddress": "0xb3813BAa11112053EFF4FD60Da208FabE291c894",
+        "USDTAddress": "0x68c40aB1B5e052aD604543CB0eA1EC2aFD4Ae9e1",
+        "USDCAddress": "0x136767C25d7751E000eF72ca46E165C288C245D1",
+        "PaymentReceiverAddress": "0xbA5AB326d8DC39fd6D983189b4ed2e19C59E73b6",
+        "TokenStakingAddress": "0xdB68Fc103F05A86E85138642AFd71d476Dffa65C",
+        "PresaleManagerAddress": "0x1e0B15D8604AAe656aC5cCffa5A6709CA0e5B933",
+        "TokenClaimAddress": "0x3eCE8cBc54C28191Aca5756D32b4819834DFa926",
+        "MetUserStateAddress": "0x292C81bE1ddB48E79f356868E288B3c8e08849Bc"
+    },
+    "ethereum": {
+        "MetAddress": "0x46d91CaecAB5C1fB2a14f24432Cb0835aa8A7fCC",
+        "USDTAddress": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        "USDCAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "PresaleManagerAddress": "0x99122aCEb74e99C36122c3CfEcDF774747d584AD",
+        "TokenClaimAddress": "0xD391cC58BdC67Fc474E0780b9D52C0A3fDF62856",
+        "PaymentReceiverAddress": "0xf96b2B77D9315143cD5790e4F10778b7F35A1D03",
+        "TokenStakingAddress": "0xf5f2e503668D418740419F5b825B8a49FA16DC7d",
+        "MetUserStateAddress": "0xf5A9FA64e3fCBb61D5F82b4e3359Bb59bB62DCeC"
+    },
+    "bsc": {
+        "USDTAddress": "0x55d398326f99059fF775485246999027B3197955",
+        "USDCAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+        "PaymentReceiverAddress": "0xC33F2EA241C2393Abaf2f69cfEb4196a6E9173aa",
+        "TokenStakingAddress": "0x6bEb07622F65bEA901292e7c54620723BBF6f55a"
+    },
+    "polygon": {
+        "USDTAddress": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "USDCAddress": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "PaymentReceiverAddress": "0xa0d95Ca73CE4118675a93B108aA871905ccb5CEf",
+        "TokenStakingAddress": "0x58bd51C9ACa030C31abb044086F1F51758afa6b1"
+    }
+}
